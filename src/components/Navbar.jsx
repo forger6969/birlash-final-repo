@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { HiMenu, HiX } from 'react-icons/hi'
 import { motion } from "framer-motion";
-import { fadeIn} from "../utils/motion";
+import { fadeIn } from "../utils/motion";
 import logos from "../assets/logos.svg"
+import LanguageSelector from './LanguageSelector';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -16,7 +17,7 @@ const Navbar = () => {
   ]
 
   return (
-    <motion.nav 
+    <motion.nav
       variants={fadeIn('down', 0.2)}
       initial="hidden"
       whileInView="show"
@@ -25,18 +26,18 @@ const Navbar = () => {
     >
       <div className="w-full flex justify-between items-center container mx-auto px-4 sm:px-6 lg:px-8 md:h-20 h-16">
         {/* Logo */}
-        <motion.div 
+        <motion.div
           variants={fadeIn('right', 0.3)}
           className="flex items-center gap-1 cursor-pointer"
         >
-          <motion.div 
+          <motion.div
             whileHover={{ scale: 1.1 }} >
-              <img className='w-[75px]' src={logos} alt="" />
+            <img className='w-[75px]' src={logos} alt="" />
           </motion.div>
 
         </motion.div>
         {/* Mobile Menu Button */}
-        <motion.button 
+        <motion.button
           variants={fadeIn('left', 0.3)}
           className="md:hidden p-2"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -49,12 +50,12 @@ const Navbar = () => {
         </motion.button>
 
         {/* Navigation Links - Desktop */}
-        <motion.div 
+        <motion.div
           variants={fadeIn('down', 0.3)}
           className="hidden md:flex items-center gap-10"
         >
           {navLinks.map((link, index) => (
-            <motion.a 
+            <motion.a
               key={index}
               variants={fadeIn('down', 0.1 * (index + 1))}
               href={link.href}
@@ -65,28 +66,36 @@ const Navbar = () => {
               {link.label}
             </motion.a>
           ))}
+
+          <div className='flex items-center gap-[25px]'>
+
+
+
+            <LanguageSelector />
+
+
+
+          </div>
+
         </motion.div>
 
+
+
         {/* CTA Button */}
-        <motion.button 
-          variants={fadeIn('left', 0.3)}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="hidden md:block bg-blue-600 text-white px-6 py-2.5 rounded-lg hover:bg-blue-700 text-sm font-medium transition-all hover:shadow-lg hover:shadow-blue-100"
-        >
-          <a href="#newsletter">Get in touch</a>
-        </motion.button>
+
+
+
       </div>
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <motion.div 
+        <motion.div
           variants={fadeIn('down', 0.2)}
           initial="hidden"
           animate="show"
           className="md:hidden bg-[#004D57] border-t  py-4"
         >
-          <motion.div 
+          <motion.div
             variants={fadeIn('down', 0.3)}
             className="container mx-auto px-4 space-y-4"
           >
@@ -105,7 +114,23 @@ const Navbar = () => {
                 {link.label}
               </motion.a>
             ))}
+
+            <div className='flex items-center gap-[25px]'>
+
+
+
+            <LanguageSelector onLanguageChange={() => setIsMenuOpen(false)} />
+
+
+
+
+
+            </div>
+
           </motion.div>
+
+
+
         </motion.div>
       )}
     </motion.nav>
