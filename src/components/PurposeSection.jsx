@@ -4,14 +4,12 @@ import { fadeIn, textVariant } from "../utils/motion";
 const PurposeSection = () => {
   const features = [
     {
-      icon: "🟣", // Replace with your actual icon component or image
-      title: "Built for impact",
-      description: "We identify and nurture a truly diverse team of designers, developers and marketers"
+      title: "Global bozorlar uchun mo‘ljallangan",
+      description: "MIX davlatlar tarmoqlariga ulanish orqali yangi bozorlar va xalqaro hamkorlik eshiklari ochiladi."
     },
     {
-      icon: "🔴", // Replace with your actual icon component or image
-      title: "In sync with you",
-      description: "We work the way you do by adapting to your workflows and rhythm we aim to blend in for a seamless."
+      title: "Katta ta’sir uchun yaratilgan  Jahonga chiqishga tayyor",
+      description: "MIX orqali davlatlar tarmoqlariga chiqib, yangi bozorlar va xalqaro hamkorlik imkoniyatlari ochiladi."
     }
   ];
 
@@ -27,15 +25,15 @@ const PurposeSection = () => {
           <motion.div variants={fadeIn('right', 0.3)}>
             <motion.div 
               variants={fadeIn('up', 0.4)}
-              className="text-sm text-purple-600 font-medium mb-2"
+              className="text-sm text-[#008B8B] font-medium mb-2"
             >
-              ACHIEVE MORE
+              Birlashish
             </motion.div>
             <motion.h2 
               variants={textVariant(0.5)}
               className="text-3xl md:w-4/5 md:text-4xl font-bold text-gray-900"
             >
-              Purpose of a convoy is to keep your team
+              Tadbirkorlarga nima bera olamiz?
             </motion.h2>
           </motion.div>
 
@@ -64,7 +62,7 @@ const PurposeSection = () => {
                   </motion.h3>
                   <motion.p 
                     variants={fadeIn('up', 0.4)}
-                    className="text-gray-600"
+                    className="text-[#3B3B3B]"
                   >
                     {feature.description}
                   </motion.p>

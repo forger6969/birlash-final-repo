@@ -2,6 +2,8 @@ import React from 'react'
 import { FaFacebookF, FaTwitter, FaLinkedinIn } from 'react-icons/fa'
 import { motion } from "framer-motion";
 import { fadeIn, textVariant } from "../utils/motion";
+import logos from "../assets/logos.svg"
+
 
 const Footer = () => {
   const footerLinks = {
@@ -33,7 +35,7 @@ const Footer = () => {
       variants={fadeIn('up', 0.2)}
       initial="hidden"
       whileInView="show"
-      className="bg-gray-50"
+      className="bg-[#1C1C1C]"
     >
       <div className="section-container">
         <motion.div 
@@ -49,9 +51,11 @@ const Footer = () => {
               variants={fadeIn('down', 0.5)}
               className="flex items-center gap-1 mb-6"
             >
-              <div className="w-4 h-4 bg-blue-600 rounded-full opacity-75"></div>
-              <div className="w-4 h-4 bg-red-500 rounded-full -ml-2"></div>
-              <span className="text-xl font-medium ml-1">The Next Design</span>
+              <div className="w-20  opacity-75">
+                <img src={logos} alt="" />
+              </div>
+
+              <span className="text-xl font-medium ml-1 text-white">Birlash</span>
             </motion.div>
             <motion.p 
               variants={fadeIn('up', 0.6)}

@@ -31,13 +31,13 @@ const ScheduleSection = () => {
         >
           <motion.span 
             variants={fadeIn('up', 0.4)}
-            className="text-orange-500 font-semibold"
+            className="text-[#C7A964] font-semibold"
           >
             SCHEDULE
           </motion.span>
           <motion.h2 
             variants={textVariant(0.5)}
-            className="text-3xl md:text-4xl font-bold text-navy-900 mt-4 mb-6"
+            className="text-3xl md:text-4xl font-bold text- mt-4 mb-6"
           >
             Streamline Your Business <br />
             With Smart Scheduling Solutions
