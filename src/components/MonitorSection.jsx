@@ -5,6 +5,7 @@ import 'swiper/css/navigation';
 import monitorCardBg from '../assets/monitor-card.webp';
 
 const MonitorSection = () => {
+
   return (
     <motion.section 
       variants={fadeIn('up', 0.2)}
