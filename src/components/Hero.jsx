@@ -44,7 +44,7 @@ const Hero = () => {
         >
           {/* Email Form */}
 
-          <a href="#asd">
+          <a href="#newsletter">
             <button className="bg-blue-600 text-white px-8 py-4 rounded-xl hover:bg-blue-700 cursor-pointer transition-all hover:shadow-lg hover:shadow-blue-100 active:scale-95">
               Contackts
             </button>
