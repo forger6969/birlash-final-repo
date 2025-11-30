@@ -35,7 +35,7 @@ const Footer = () => {
       variants={fadeIn('up', 0.2)}
       initial="hidden"
       whileInView="show"
-      className="bg-[#1C1C1C]"
+      className="bg-[#004D57] "
     >
       <div className="section-container">
         <motion.div 
@@ -55,7 +55,7 @@ const Footer = () => {
                 <img src={logos} alt="" />
               </div>
 
-              <span className="text-xl font-normal ml-1 text-white">Birlash</span>
+              <span className="text-[25px] font-medium ml-1  text-white">Birlash</span>
             </motion.div>
             <motion.p 
               variants={fadeIn('up', 0.6)}
@@ -70,21 +70,21 @@ const Footer = () => {
               <motion.a 
                 whileHover={{ scale: 1.1 }}
                 href="#" 
-                className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:bg-blue-600 hover:text-white transition-colors"
+                className="w-10 h-10 bg-gray-0 text-white rounded-full flex items-center justify-center  hover:bg-blue-600 hover:text-white transition-colors"
               >
                 <FaFacebookF className="w-5 h-5" />
               </motion.a>
               <motion.a 
                 whileHover={{ scale: 1.1 }}
                 href="#" 
-                className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:bg-blue-400 hover:text-white transition-colors"
+                className="w-10 h-10 bg-gray-0 rounded-full flex items-center justify-center text-white hover:bg-blue-600 hover:text-white transition-colors"
               >
                 <FaTwitter className="w-5 h-5" />
               </motion.a>
               <motion.a 
                 whileHover={{ scale: 1.1 }}
                 href="#" 
-                className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:bg-blue-700 hover:text-white transition-colors"
+                className="w-10 h-10 bg-gray-0 rounded-full flex items-center justify-center text-white hover:bg-blue-700 hover:text-white transition-colors"
               >
                 <FaLinkedinIn className="w-5 h-5" />
               </motion.a>
@@ -104,14 +104,14 @@ const Footer = () => {
                 >
                   <motion.h3 
                     variants={textVariant(0.2)}
-                    id='textFoers'
+                   
                     className="text-lg font-medium mb-4"
                   >
                     {category.charAt(0).toUpperCase() + category.slice(1)}
                   </motion.h3>
                   <motion.ul 
                     variants={fadeIn('up', 0.4)}
-                    className="space-y-3"
+                    className="space-y-3 "
                   >
                     {links.map((link, index) => (
                       <motion.li 
@@ -121,8 +121,8 @@ const Footer = () => {
                         <motion.a 
                           whileHover={{ x: 5 }}
                           href={link.href} 
-                          id='textFoers'
-                          className="text-white "
+                          
+                          className="text-white text-sm font-medium relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full hover:text-blue-600 after:bg-blue-600 after:transition-all"
                         >
                           {link.name}
                         </motion.a>
@@ -146,13 +146,13 @@ const Footer = () => {
           >
             <motion.p 
               variants={fadeIn('right', 1.0)}
-              className="text-gray-600 text-sm"
+              className="text-white text-sm"
             >
-              Copyright © {new Date().getFullYear()} codetutorbd.com
+              Copyright © {new Date().getFullYear()} 
             </motion.p>
             <motion.p 
               variants={fadeIn('left', 1.0)}
-              className="text-gray-600 text-sm"
+              className="text-white text-sm"
             >
               Created by Md Al Mamun
             </motion.p>
