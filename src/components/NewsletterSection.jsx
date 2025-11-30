@@ -28,6 +28,9 @@ const NewsletterSection = () => {
         }
       }
     )
+
+    console.log(1);
+
   }
 
   return (
@@ -109,6 +112,7 @@ const NewsletterSection = () => {
 
 
                 <motion.button
+                  onClick={post}
                   variants={fadeIn('left', 0.7)}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}

@@ -74,7 +74,6 @@ const PurposeSection = () => {
           <motion.div variants={fadeIn("left", 0.3)} className="col-span-2">
             <Swiper
               modules={[Autoplay, FreeMode]}
-              spaceBetween={24}
               slidesPerView={2}
               freeMode={true}
               freeModeMomentum={false}
@@ -83,6 +82,7 @@ const PurposeSection = () => {
                 delay: 0,
                 disableOnInteraction: false,
               }}
+              
               speed={11000}
               allowTouchMove={false}
               onSwiper={(swiper) => {
