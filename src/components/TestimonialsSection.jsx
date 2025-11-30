@@ -121,7 +121,7 @@ const TestimonialsSection = () => {
                     <motion.span
                       key={starIndex}
                       variants={fadeIn('up', 0.1 * starIndex)}
-                      className="text-blue-600"
+                      className="text-[#26b231] "
                     >
                       ★
                     </motion.span>
