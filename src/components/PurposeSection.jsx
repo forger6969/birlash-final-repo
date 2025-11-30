@@ -93,7 +93,7 @@ const PurposeSection = () => {
             >
               {[...features, ...features].map((f, i) => (
                 <SwiperSlide key={i}>
-                  <div className="p-6 bg-white rounded-lg shadow h-full">
+                  <div className="h-[190px] p-6 bg-white rounded-lg shadow mr-[10px]">
                     <h3 className="text-xl font-semibold mb-2">{f.title}</h3>
                     <p className="text-[#3B3B3B]">{f.description}</p>
                   </div>
