@@ -75,7 +75,6 @@ const PurposeSection = () => {
             <Swiper
               modules={[Autoplay, FreeMode]}
               slidesPerView={2}
-              freeMode={true}
               freeModeMomentum={false}
               loop={true}
               autoplay={{
