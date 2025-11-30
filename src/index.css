@@ -9,3 +9,7 @@ html {
 .section-container {
   @apply  px-4 sm:px-6 lg:px-8 py-16 container mx-auto;
 }
+
+#textFoers:hover {
+  text-shadow: green 2px 5px 13px;
+}
