@@ -123,7 +123,6 @@ const NewsletterSection = () => {
         </div>
       </motion.div>
 
-      <button onClick={post}>Post</button>
 
       <style>
         {`
