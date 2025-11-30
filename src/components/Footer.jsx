@@ -55,11 +55,11 @@ const Footer = () => {
                 <img src={logos} alt="" />
               </div>
 
-              <span className="text-xl font-medium ml-1 text-white">Birlash</span>
+              <span className="text-xl font-normal ml-1 text-white">Birlash</span>
             </motion.div>
             <motion.p 
               variants={fadeIn('up', 0.6)}
-              className="text-gray-600 mb-6"
+              className="text-gray-50 mb-6"
             >
               The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times.
             </motion.p>
@@ -96,7 +96,7 @@ const Footer = () => {
             variants={fadeIn('left', 0.4)}
             className="lg:col-span-8"
           >
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="grid text-white grid-cols-2 md:grid-cols-4 gap-8">
               {Object.entries(footerLinks).map(([category, links], categoryIndex) => (
                 <motion.div 
                   key={category}
@@ -104,6 +104,7 @@ const Footer = () => {
                 >
                   <motion.h3 
                     variants={textVariant(0.2)}
+                    id='textFoers'
                     className="text-lg font-medium mb-4"
                   >
                     {category.charAt(0).toUpperCase() + category.slice(1)}
@@ -120,7 +121,8 @@ const Footer = () => {
                         <motion.a 
                           whileHover={{ x: 5 }}
                           href={link.href} 
-                          className="text-gray-600 hover:text-gray-900"
+                          id='textFoers'
+                          className="text-white "
                         >
                           {link.name}
                         </motion.a>
