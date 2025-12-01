@@ -66,23 +66,23 @@ const Navbar = () => {
               {link.label}
             </motion.a>
           ))}
+
+          <div className='flex items-center gap-[25px]'>
+
+
+
+            <LanguageSelector />
+
+
+
+          </div>
+
         </motion.div>
 
+
+
         {/* CTA Button */}
-        <div className='flex items-center gap-[25px]'>
 
-          <LanguageSelector />
-
-
-          <motion.button
-            variants={fadeIn('left', 0.3)}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="hidden md:block bg-blue-600 text-white px-6 py-2.5 rounded-lg hover:bg-blue-700 text-sm font-medium transition-all hover:shadow-lg hover:shadow-blue-100"
-          >
-            <a href="#newsletter">Get in touch</a>
-          </motion.button>
-        </div>
 
 
       </div>
@@ -93,7 +93,7 @@ const Navbar = () => {
           variants={fadeIn('down', 0.2)}
           initial="hidden"
           animate="show"
-          className="md:hidden bg-white border-t border-gray-100 py-4"
+          className="md:hidden bg-[#004D57] border-t  py-4"
         >
           <motion.div
             variants={fadeIn('down', 0.3)}
@@ -109,20 +109,28 @@ const Navbar = () => {
                   setIsMenuOpen(false);
                 }}
                 className={`block text-sm font-medium py-2
-                  ${activeLink === link.href ? 'text-blue-600' : 'text-gray-600 hover:text-gray-900'}`}
+                  ${activeLink === link.href ? 'text-blue-600' : 'text-white hover:text-blue-600'}`}
               >
                 {link.label}
               </motion.a>
             ))}
-            <motion.button
-              variants={fadeIn('up', 0.4)}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="w-full bg-blue-600 text-white px-6 py-2.5 rounded-lg hover:bg-blue-700 text-sm font-medium transition-all hover:shadow-lg hover:shadow-blue-100"
-            >
-              Get in touch
-            </motion.button>
+
+            <div className='flex items-center gap-[25px]'>
+
+
+
+            <LanguageSelector onLanguageChange={() => setIsMenuOpen(false)} />
+
+
+
+
+
+            </div>
+
           </motion.div>
+
+
+
         </motion.div>
       )}
     </motion.nav>

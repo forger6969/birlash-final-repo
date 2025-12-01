@@ -1,6 +1,6 @@
 {
-    "hero_item_1_part": "BIRLASH — growth, collaboration and",
-    "hero_item_2_part": "a new",
+    "hero_item_1_part": "BIRLASH — growth, collaboration and ",
+    "hero_item_2_part": " a new",
     "hero_item_3_part": "investment format",
     "hero_description": "Our goal is for every entrepreneur to build their business consciously through education, environment, and responsibility. Knowledge turns into systematic solutions, and energy into results.",
     "hero_contact_us": "contact us",
@@ -8,5 +8,6 @@
     "swiper_card_1_describe": "Through MIX, new markets and international collaboration opportunities open up by connecting to country networks.",
     "swiper_card_2_item": "Built for global markets",
     "swiper_card_2_describe": "MIX opens doors to new markets and international collaboration by connecting to country networks.",
-    "swiper_card_section_item": "What can we offer to entrepreneurs?"
+    "swiper_card_section_item": "What can we offer to entrepreneurs?",
+    "send_btn_text": "Send"
 }

@@ -3,12 +3,14 @@ import { HiArrowRight } from "react-icons/hi";
 import { motion } from "framer-motion";
 import { fadeIn } from "../utils/motion";
 import axios from "axios";
+import { useTranslation } from "react-i18next";
 
 const NewsletterSection = () => {
   const firstname = useRef(null);
   const number = useRef(null);
   const paket = useRef(null);
   const comment = useRef(null);
+  const { t } = useTranslation()
 
   const [openCard, setOpenCard] = useState(null);
 
@@ -162,13 +164,16 @@ const NewsletterSection = () => {
                 <motion.button
                   onClick={post}
                   variants={fadeIn("left", 0.7)}
+                  animate={{ scale: [1, 1.05, 1] }}
+                  transition={{ repeat: Infinity, duration: 1.5 }}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="w-full cursor-pointer bg-green-500 text-white px-8 py-4 rounded-xl flex items-center justify-center gap-2"
                 >
-                  <span>Discover</span>
+                  <span>{t("send_btn_text")}</span>
                   <HiArrowRight className="w-5 h-5" />
                 </motion.button>
+
               </motion.div>
             </motion.div>
           </div>

@@ -26,6 +26,7 @@ function App() {
         <ServicesSection />
         <TestimonialsSection />
         <NewsletterSection />
+
         <Footer />
       </div>
     </main>
