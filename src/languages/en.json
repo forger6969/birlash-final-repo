@@ -9,5 +9,25 @@
     "swiper_card_2_item": "Built for global markets",
     "swiper_card_2_describe": "MIX opens doors to new markets and international collaboration by connecting to country networks.",
     "swiper_card_section_item": "What can we offer to entrepreneurs?",
-    "send_btn_text": "Send"
+    "send_btn_text": "Send",
+    "packages": [
+        {
+            "id": 1,
+            "title": "Standard Package",
+            "price": "$49 / month",
+            "details": "Basic analytics, customer support, limited features. Perfect for individuals and small teams."
+        },
+        {
+            "id": 2,
+            "title": "Business Package",
+            "price": "$99 / month",
+            "details": "Full analytics, priority support, advanced tools and integrations for growing businesses."
+        },
+        {
+            "id": 3,
+            "title": "Premium Package",
+            "price": "$149 / month",
+            "details": "Automation tools, API access, unlimited features, VIP support. Best for scaling companies."
+        }
+    ]
 }
