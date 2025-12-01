@@ -7,12 +7,17 @@ import { Autoplay, FreeMode } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/free-mode";
+import { useTranslation } from "react-i18next";
 
 const PurposeSection = () => {
+  const { t } = useTranslation()
+
   const [isPlaying, setIsPlaying] = useState(true); // autoplay defaultda ON
   const swiperRef = useRef(null);
 
   const handleClick = () => {
+
+
     if (!swiperRef.current) return;
 
     if (isPlaying) {
@@ -26,14 +31,13 @@ const PurposeSection = () => {
 
   const features = [
     {
-      title: "Global bozorlar uchun mo‘ljallangan",
+      title: t("swiper_card_1_item"),
       description:
-        "MIX davlatlar tarmoqlariga ulanish orqali yangi bozorlar va xalqaro hamkorlik eshiklari ochiladi.",
+        t("swiper_card_1_describe"),
     },
     {
-      title: "Katta ta’sir uchun yaratilgan — Jahonga chiqishga tayyor",
-      description:
-        "MIX orqali davlatlar tarmoqlariga chiqib, yangi bozorlar va xalqaro hamkorlik imkoniyatlari ochiladi.",
+      title: t("swiper_card_2_item"),
+      description: t("swiper_card_2_describe"),
     },
   ];
 
@@ -59,7 +63,7 @@ const PurposeSection = () => {
               variants={textVariant(0.5)}
               className="text-3xl md:w-4/5 md:text-4xl font-bold text-gray-900"
             >
-              Tadbirkorlarga nima bera olamiz?
+             {t("swiper_card_section_item")}
             </motion.h2>
 
             <button
@@ -81,7 +85,7 @@ const PurposeSection = () => {
                 delay: 0,
                 disableOnInteraction: false,
               }}
-              
+
               speed={11000}
               allowTouchMove={false}
               onSwiper={(swiper) => {
