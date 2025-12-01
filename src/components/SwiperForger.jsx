@@ -18,6 +18,7 @@ export default function SwiperForger() {
                 }
             `}</style>
             <div className='mt-30 mb-30'>
+                
 
                 <h1 className="text-3xl font-semibold text-center mx-auto">Our Latest Creations</h1>
                 <p className="text-sm text-slate-500 text-center mt-2 max-w-lg mx-auto">A visual collection of our most recent works - each piece crafted with intention, emotion, and style.</p>
