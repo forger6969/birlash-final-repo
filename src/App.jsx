@@ -12,6 +12,7 @@ import Footer from './components/Footer'
 import SwiperForger from './components/SwiperForger'
 import BirlashBrain from './components/BirlashBrain'
 import BusinessParticles from './components/BusinessParticles'
+import { MorphingDialogBasicTwo } from './components/MorphingDialogBasicTwo'
 
 function App() {
   return (
