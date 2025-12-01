@@ -10,7 +10,6 @@ import TestimonialsSection from './components/TestimonialsSection'
 import NewsletterSection from './components/NewsletterSection'
 import Footer from './components/Footer'
 import SwiperForger from './components/SwiperForger'
-import WordShowHidden from './animation/WordShowHidden'
 
 function App() {
   return (
@@ -27,7 +26,6 @@ function App() {
         <ServicesSection />
         <TestimonialsSection />
         <NewsletterSection />
-        <WordShowHidden />
         <Footer />
       </div>
     </main>
