@@ -19,6 +19,7 @@ i18n
       ru: { translation: ruTranslations },
       uz: { translation: uzTranslations },
     },
+    
     interpolation: { escapeValue: false },
   });
 
