@@ -1,175 +1,143 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Autoplay } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
-import { motion } from "framer-motion";
-import { fadeIn, textVariant } from "../utils/motion";
+import { useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import { FiChevronDown } from "react-icons/fi";
+import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
-const testimonials = [
-  {
-    id: 1,
-    name: "Robin Ayala Doe",
-    image: "https://randomuser.me/api/portraits/men/77.jpg",
-    text: "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast.",
-  },
-  {
-    id: 2,
-    name: "John De marli",
-    image: "https://randomuser.me/api/portraits/women/90.jpg",
-    text: "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.",
-  },
-  {
-    id: 3,
-    name: "Rowhan Smith",
-    image: "https://randomuser.me/api/portraits/men/90.jpg",
-    text: "When she reached the first hills of the Mountains, she had a last view back on the of her hometown Bookmarksgrove, the headline.",
-  },
-  {
-    id: 4,
-    name: "Sarah Johnson",
-    image: "https://randomuser.me/api/portraits/women/45.jpg",
-    text: "The customer service has been exceptional. They went above and beyond to help me solve my problems and were always available when I needed them.",
-  },
-  {
-    id: 5,
-    name: "Michael Chen",
-    image: "https://randomuser.me/api/portraits/men/32.jpg",
-    text: "I've been using their services for over a year now and couldn't be happier. The platform is intuitive and the features are exactly what I needed for my business.",
-  },
-  {
-    id: 6,
-    name: "Emma Wilson",
-    image: "https://randomuser.me/api/portraits/women/28.jpg",
-    text: "What impressed me most was how quickly they responded to my requests. The team is professional, knowledgeable, and truly cares about their customers' success.",
-  },
+const PackagesSwiper = () => {
+  const { t } = useTranslation();
+  const packages = t("packages", { returnObjects: true }); // массив пакетов из i18next
 
-];
+  const [openId, setOpenId] = useState(null);
+  const contentRefs = useRef([]);
 
-const TestimonialsSection = () => {
+  const toggle = (id, index) => {
+    const currentEl = contentRefs.current[index];
+
+    if (openId !== id) {
+      // закрываем старый
+      if (openId !== null) {
+        const oldIndex = packages.findIndex((p) => p.id === openId);
+        const oldEl = contentRefs.current[oldIndex];
+        if (oldEl) {
+          oldEl.style.height = oldEl.scrollHeight + "px";
+          requestAnimationFrame(() => {
+            oldEl.style.height = "0px";
+          });
+        }
+      }
+
+      // открываем новый
+      currentEl.style.height = currentEl.scrollHeight + "px";
+      setOpenId(id);
+
+      setTimeout(() => {
+        currentEl.style.height = "auto";
+      }, 300);
+      return;
+    }
+
+    // закрываем текущий
+    if (openId === id) {
+      currentEl.style.height = currentEl.scrollHeight + "px";
+      requestAnimationFrame(() => {
+        currentEl.style.height = "0px";
+      });
+      setTimeout(() => {
+        setOpenId(null);
+      }, 300);
+    }
+  };
+
   return (
-    <section id="testimonials" className="py-16 px-4 max-w-7xl mx-auto">
-      <motion.div
-        variants={fadeIn('up', 0.3)}
-        className="text-center mb-12"
+    <section className="py-16 px-4 max-w-7xl mx-auto">
+      <Swiper
+        modules={[Navigation, Autoplay]}
+        spaceBetween={24}
+        loop={true}
+        autoplay={{ delay: 2000, disableOnInteraction: false }}
+        navigation={{
+          nextEl: ".swiper-button-next-custom",
+          prevEl: ".swiper-button-prev-custom",
+        }}
+        breakpoints={{
+          0: { slidesPerView: 1 },
+          640: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
+        }}
       >
-        <motion.h2
-          variants={textVariant(0.2)}
-          className="text-3xl md:text-4xl font-bold mb-4"
-        >
-          What our happy client say
-        </motion.h2>
-        <motion.p
-          variants={fadeIn('up', 0.4)}
-          className="text-gray-600"
-        >
-          Things that make it the best place to start trading
-        </motion.p>
-      </motion.div>
+        {packages.map((pkg, index) => {
+          const isOpen = openId === pkg.id;
 
-      <motion.div
-        variants={fadeIn('up', 0.5)}
-        className="relative"
-      >
-        <Swiper
-          modules={[Navigation, Autoplay]}
-          spaceBetween={30}
-          autoplay={{
-            delay: 3000,
-            disableOnInteraction: false,
-          }}
-          navigation={{
-            nextEl: '.swiper-button-next-custom',
-            prevEl: '.swiper-button-prev-custom',
-          }}
+          return (
+            <SwiperSlide key={pkg.id} className="py-4">
+              <div className="
+                bg-white rounded-2xl shadow-sm border border-gray-200
+                p-6 h-full flex flex-col justify-between
+                hover:shadow-xl hover:border-gray-300 transition-all duration-300
+              ">
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">{pkg.title}</h3>
 
-          breakpoints={{
-            0: {
-              slidesPerView: 1,
-            },
-            768: {
-              slidesPerView: 2,
-            },
-            1024: {
-              slidesPerView: 3,
-            },
-          }}
-          className="testimonials-swiper md:mb-12"
-        >
-          {testimonials.map((testimonial, index) => (
-            <SwiperSlide key={testimonial.id} className='h-full md:py-12 py-4'>
-              <motion.div
-                variants={fadeIn('up', 0.3 * (index + 1))}
-                className="text-center bg-white p-4 rounded-lg shadow-md h-full flex flex-col"
-              >
-                <motion.div
-                  variants={fadeIn('down', 0.4 * (index + 1))}
-                  className="w-24 h-24 mx-auto mb-4"
+                  <p className="
+                    text-2xl font-extrabold 
+                    bg-gradient-to-r from-blue-600 to-indigo-600 
+                    bg-clip-text text-transparent mb-4
+                  ">
+                    {pkg.price}
+                  </p>
+
+                  <div className="h-px w-full bg-gray-200 mb-4"></div>
+                </div>
+
+                {/* BUTTON */}
+                <button
+                  onClick={() => toggle(pkg.id, index)}
+                  className="flex items-center gap-2 text-[15px] font-medium text-gray-700 hover:text-blue-600 transition"
                 >
-                  <motion.img
-                    variants={fadeIn('up', 0.5 * (index + 1))}
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="w-full h-full object-cover rounded-full"
+                  Подробнее
+                  <FiChevronDown
+                    className={`transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+                    size={20}
                   />
-                </motion.div>
-                <motion.div
-                  variants={fadeIn('up', 0.4 * (index + 1))}
-                  className="flex justify-center mb-2"
+                </button>
+
+                {/* COLLAPSE */}
+                <div
+                  ref={(el) => (contentRefs.current[index] = el)}
+                  className="overflow-hidden transition-all duration-300 h-0"
                 >
-                  {[...Array(5)].map((_, starIndex) => (
-                    <motion.span
-                      key={starIndex}
-                      variants={fadeIn('up', 0.1 * starIndex)}
-                      className="text-[#26b231] "
-                    >
-                      ★
-                    </motion.span>
-                  ))}
-                </motion.div>
-                <motion.h3
-                  variants={textVariant(0.3)}
-                  className="font-semibold text-xl mb-3"
-                >
-                  {testimonial.name}
-                </motion.h3>
-                <motion.p
-                  variants={fadeIn('up', 0.6 * (index + 1))}
-                  className="text-gray-600"
-                >
-                  {testimonial.text}
-                </motion.p>
-              </motion.div>
+                  <div className="p-4 bg-gray-100 rounded-xl text-gray-700 text-sm border border-gray-200 mt-3">
+                    {pkg.details}
+                  </div>
+                </div>
+              </div>
             </SwiperSlide>
-          ))}
-        </Swiper>
+          );
+        })}
+      </Swiper>
 
-        {/* Custom Navigation Buttons */}
-        <motion.div
-          variants={fadeIn('up', 0.7)}
-          className="flex justify-center gap-4 mt-8"
-        >
-          <motion.button
-            variants={fadeIn('right', 0.8)}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            className="swiper-button-prev-custom w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-blue-500 hover:text-white cursor-pointer transition-colors"
-          >
-            <BsChevronLeft className="w-6 h-6" />
-          </motion.button>
-          <motion.button
-            variants={fadeIn('left', 0.8)}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            className="swiper-button-next-custom w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-blue-500 hover:text-white cursor-pointer transition-colors"
-          >
-            <BsChevronRight className="w-6 h-6" />
-          </motion.button>
-        </motion.div>
-
-      </motion.div>
+      <div className="flex justify-center gap-4 mt-8">
+        <button className="
+          swiper-button-prev-custom w-12 h-12 rounded-full border border-gray-300
+          flex items-center justify-center hover:bg-blue-600 hover:text-white
+          transition-colors shadow-sm
+        ">
+          <BsChevronLeft className="w-6 h-6" />
+        </button>
+        <button className="
+          swiper-button-next-custom w-12 h-12 rounded-full border border-gray-300
+          flex items-center justify-center hover:bg-blue-600 hover:text-white
+          transition-colors shadow-sm
+        ">
+          <BsChevronRight className="w-6 h-6" />
+        </button>
+      </div>
     </section>
   );
 };
 
-export default TestimonialsSection;
+export default PackagesSwiper;

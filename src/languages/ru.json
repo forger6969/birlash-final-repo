@@ -9,6 +9,25 @@
     "swiper_card_2_item": "Предназначено для глобальных рынков",
     "swiper_card_2_describe": "MIX открывает двери к новым рынкам и международному сотрудничеству через подключение к сетям стран.",
     "swiper_card_section_item": " Что мы можем дать предпринимательям?",
-    "send_btn_text": "Отправить"
-    
+    "send_btn_text": "Отправить",
+    "packages": [
+        {
+            "id": 1,
+            "title": "Пакет BIRLASH ASOS",
+            "price": "$49 / month",
+            "details": "«Asos» — основа, фундамент, системность. Пакет создан для предпринимателей, которые хотят укрепить фундамент своего бизнеса: системность, контроль, дисциплину и осознанность. Это уровень внутреннего порядка и структурирования.\n Всё из пакета BIRLASH ASOS, плюс: Мероприятия клуба (4 формата):- Mavzuli Uchrashuvlar (Thematic Talks) — тематические встречи со спикерами и экспертами.- Tahliliy Doira (Mastermind Sessions) — групповые бизнес-разборы с менторами и психологами.- Biznes Tahlil (Business Breakdown) — глубокий анализ бизнес-кейсов участников.- Biznes Suhbatlari (Business Gap) — неформальные встречи и открытые разговоры о бизнесе."
+        },
+        {
+            "id": 2,
+            "title": "Business Package",
+            "price": "$99 / month",
+            "details": "Full analytics, priority support, advanced tools and integrations for growing businesses."
+        },
+        {
+            "id": 3,
+            "title": "Premium Package",
+            "price": "$149 / month",
+            "details": "Automation tools, API access, unlimited features, VIP support. Best for scaling companies."
+        }
+    ]
 }

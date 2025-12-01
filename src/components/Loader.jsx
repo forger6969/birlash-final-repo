@@ -9,6 +9,7 @@ const FullscreenLoader = () => {
         const prev = {
             overflow: document.body.style.overflow,
             touchAction: document.body.style.touchAction,
+            
         };
         document.body.style.overflow = "hidden";
         document.body.style.touchAction = "none"; // чтобы убрать нежелательные свайпы на мобилах
