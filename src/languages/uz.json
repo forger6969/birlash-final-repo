@@ -1,13 +1,34 @@
 {
     "hero_item_1_part": "BIRLASH — o‘sish, hamkorlik va",
-    "hero_item_2_part": "sarmoyaning yangi",
-    "hero_item_3_part": "formati",
-    "hero_description": "Bizning maqsadimiz — har bir tadbirkor biznesini ongli ravishda qurishi, ta'lim, muhit va mas'uliyat orqali. Bilimlar tizimli yechimlarga, energiya esa natijaga aylanadi.",
-    "hero_contact_us": "Boglanish",
+    "hero_item_2_part": "yangi format",
+    "hero_item_3_part": "investitsiya",
+    "hero_description": "Bizning maqsadimiz — har bir tadbirkor biznesini ongli ravishda qurishi, ta’lim, muhit va javobgarlik orqali. Bilimlarni tizimli yechimlarga, energiyani natijalarga aylantirish.",
+    "hero_contact_us": "Biz bilan bog‘lanish",
     "swiper_card_1_item": "Katta ta’sir uchun yaratilgan — Jahonga chiqishga tayyor",
-    "swiper_card_1_describe": "MIX orqali davlatlar tarmoqlariga chiqib, yangi bozorlar va xalqaro hamkorlik imkoniyatlari ochiladi.",
+    "swiper_card_1_describe": "MIX orqali yangi bozorlar va xalqaro hamkorlik imkoniyatlari ochiladi, turli mamlakatlar tarmoqlariga ulanib.",
     "swiper_card_2_item": "Global bozorlar uchun mo‘ljallangan",
-    "swiper_card_2_describe": "MIX davlatlar tarmoqlariga ulanish orqali yangi bozorlar va xalqaro hamkorlik eshiklari ochiladi.",
-    "swiper_card_section_item": " Tadbirkorlarga nima bera olamiz?",
-    "send_btn_text": "Jo'natish"
+    "swiper_card_2_describe": "MIX yangi bozorlar va xalqaro hamkorlik eshiklarini ochadi, mamlakatlar tarmoqlariga ulanib.",
+    "swiper_card_section_item": "Biz tadbirkorlarga nima taklif qilamiz?",
+    "send_btn_text": "Yuborish",
+    "packages": [
+        {
+            "id": 1,
+            "title": "BIRLASH ASOS Paketi",
+            "price": "$49 / month",
+            "details": "‘Asos’ — poydevor, struktur, tizim. Tadbirkorlar uchun mo‘ljallangan: nazorat, intizom va ong.\n\nBIRLASH ASOS paketidagi hamma narsalar, shuningdek klub tadbirlari (4 format):\n- Thematic Talks — spikerlar va ekspertlar bilan uchrashuvlar.\n- Mastermind Sessions — mentorlar va psixologlar bilan guruhiy biznes tahlillari.\n- Business Breakdown — ishtirokchilarning biznes holatlarini chuqur tahlil qilish.\n- Business Gap — norasmiy uchrashuvlar va ochiq biznes suhbatlari."
+        },
+        {
+            "id": 2,
+            "title": "BIRLASH O‘SISH Paketi",
+            "price": "$99 / month",
+            "details": "‘O‘sish’ — o‘sish, rivojlanish, o‘zaro hamkorlik.\n\nTadbirkorlar uchun mo‘ljallangan, biznesni rivojlantirish, yangi yechimlarni joriy qilish va boshqa liderlar bilan tajriba almashish uchun.\n\nBIRLASH ASOS paketidagi hamma narsalar, shuningdek klub tadbirlari (4 format):\n- Thematic Talks — spikerlar va ekspertlar bilan uchrashuvlar.\n- Mastermind Sessions — mentorlar va psixologlar bilan guruhiy biznes tahlillari.\n- Business Breakdown — ishtirokchilarning biznes holatlarini chuqur tahlil qilish.\n- Business Gap — norasmiy uchrashuvlar va ochiq biznes suhbatlari."
+        },
+        {
+            "id": 3,
+            "title": "BIRLASH TA’SIR Paketi",
+            "price": "$149 / month",
+            "details": "Ta’lim bloklari (5 yo‘nalish):\n- Marketing\n- Moliyaviy boshqaruv\n- Soliqlar va huquqiy tuzilma\n- Franchayza va kengayish\n- Avtomatlashtirish va boshqaruv jarayonlari\n\nKlub tadbirlarining barcha formatlari:\n- Thematic Talks\n- Mastermind Sessions\n- Fail Talk — muvaffaqiyatsizliklar va xulosalar haqida ochiq uchrashuvlar.\n- Company Visit — rezident kompaniyalarga tashrif, amaliyot almashish.\n- Business Gap Evenings — norasmiy biznes kechalari."
+        }
+    ],
+    "feedback_text_form_card": "So'rov qoldiring va biz siz bilan bog'lanamiz."
 }

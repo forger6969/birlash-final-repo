@@ -15,7 +15,8 @@ const LanguageSelector = ({ onLanguageChange }) => {
 
     setLoader(true)
     setTimeout(() => {
-      i18n.changeLanguage(lang);
+      i18n.changeLanguage(lang.toLowerCase());
+      localStorage.setItem("language", lang);
       setLoader(false)
     }, 1500);
   };

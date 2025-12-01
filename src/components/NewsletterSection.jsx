@@ -117,6 +117,10 @@ const NewsletterSection = () => {
                   </motion.div>
                 </motion.div>
               ))}
+
+              <div className="bg-white cursor-pointer backdrop-blur-md text-black px-6 py-6 rounded-xl border border-white/30">
+                <p>{t("feedback_text_form_card")}</p>
+              </div>
             </div>
 
             {/* 🟢 ПРАВАЯ КОЛОНКА — ФОРМА */}
