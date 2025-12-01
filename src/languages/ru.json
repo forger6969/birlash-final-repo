@@ -3,31 +3,32 @@
     "hero_item_2_part": "новый формат",
     "hero_item_3_part": "инвестирования",
     "hero_description": "Наша цель — чтобы каждый предприниматель выстраивал свой бизнес осознанно, через образование, окружение и ответственность. Чтобы знания превращались в системные решения, а энергия — в результат.",
-    "hero_contact_us": "Связатся с нами",
+    "hero_contact_us": "Связаться с нами",
     "swiper_card_1_item": "Создано для большого влияния — готово выйти на мировой уровень",
     "swiper_card_1_describe": "Через MIX открываются новые рынки и возможности международного сотрудничества, подключаясь к сетям разных стран.",
     "swiper_card_2_item": "Предназначено для глобальных рынков",
     "swiper_card_2_describe": "MIX открывает двери к новым рынкам и международному сотрудничеству через подключение к сетям стран.",
-    "swiper_card_section_item": " Что мы можем дать предпринимательям?",
+    "swiper_card_section_item": "Что мы можем дать предпринимателям?",
     "send_btn_text": "Отправить",
     "packages": [
         {
             "id": 1,
             "title": "Пакет BIRLASH ASOS",
             "price": "$49 / month",
-            "details": "«Asos» — основа, фундамент, системность. Пакет создан для предпринимателей, которые хотят укрепить фундамент своего бизнеса: системность, контроль, дисциплину и осознанность. Это уровень внутреннего порядка и структурирования.\n Всё из пакета BIRLASH ASOS, плюс: Мероприятия клуба (4 формата):- Mavzuli Uchrashuvlar (Thematic Talks) — тематические встречи со спикерами и экспертами.- Tahliliy Doira (Mastermind Sessions) — групповые бизнес-разборы с менторами и психологами.- Biznes Tahlil (Business Breakdown) — глубокий анализ бизнес-кейсов участников.- Biznes Suhbatlari (Business Gap) — неформальные встречи и открытые разговоры о бизнесе."
+            "details": "«Asos» — основа, фундамент, системность. Пакет создан для предпринимателей, которые хотят укрепить фундамент своего бизнеса: системность, контроль, дисциплину и осознанность.\n\nВсё из пакета BIRLASH ASOS, плюс: Мероприятия клуба (4 формата):\n- Mavzuli Uchrashuvlar (Thematic Talks) — тематические встречи со спикерами и экспертами.\n- Tahliliy Doira (Mastermind Sessions) — групповые бизнес-разборы с менторами и психологами.\n- Biznes Tahlil (Business Breakdown) — глубокий анализ бизнес-кейсов участников.\n- Biznes Suhbatlari (Business Gap) — неформальные встречи и открытые разговоры о бизнесе."
         },
         {
             "id": 2,
-            "title": "Business Package",
+            "title": "Пакет BIRLASH O‘SISH",
             "price": "$99 / month",
-            "details": "Full analytics, priority support, advanced tools and integrations for growing businesses."
+            "details": "«O‘sish» — рост, развитие, взаимодействие.\n\nЭтот формат создан для предпринимателей, которые хотят развивать свой бизнес, внедрять новые решения и обмениваться опытом с другими лидерами. Это уровень практики, анализа и командного роста.\n\nВсё из пакета BIRLASH ASOS, плюс:\nМероприятия клуба (4 формата):\n- Mavzuli Uchrashuvlar (Thematic Talks) — тематические встречи со спикерами и экспертами.\n- Tahliliy Doira (Mastermind Sessions) — групповые бизнес-разборы с менторами и психологами.\n- Biznes Tahlil (Business Breakdown) — глубокий анализ бизнес-кейсов участников.\n- Biznes Suhbatlari (Business Gap) — неформальные встречи и открытые разговоры о бизнесе."
         },
         {
             "id": 3,
-            "title": "Premium Package",
+            "title": "Пакет BIRLASH TA’SIR",
             "price": "$149 / month",
-            "details": "Automation tools, API access, unlimited features, VIP support. Best for scaling companies."
+            "details": "Образовательные блоки (5 направлений):\n- Marketing\n- Moliya (Финансы)\n- Soliqlar va Huquqiy Tuzilma (Налоги и правовая структура бизнеса)\n- Franshiza va Kengayish (Франшиза и масштабирование)\n- Avtomatlashtirish va Boshqaruv Jarayonlari (Автоматизация и управленческие процессы)\n\nВсе форматы мероприятий клуба:\n- Mavzuli Uchrashuvlar (Thematic Talks)\n- Tahliliy Doira (Mastermind Sessions)\n- Xatolar Klubi (Fail Talk) — честные встречи о провалах и выводах.\n- Tashrif — Biznesga Sayohat (Company Visit) — визиты в компании резидентов, обмен практиками.\n- Biznes Suhbatlari (Business Gap Evenings) — неформальные бизнес-вечера."
         }
-    ]
+    ],
+    "feedback_text_form_card": "Оставьте заявку мы с вами свяжемся"
 }

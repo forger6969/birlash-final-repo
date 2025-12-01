@@ -9,7 +9,9 @@ import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
 const PackagesSwiper = () => {
   const { t } = useTranslation();
-  const packages = t("packages", { returnObjects: true }); // массив пакетов из i18next
+  const packages = t("packages", { returnObjects: true });
+  console.log(packages);
+   // массив пакетов из i18next
 
   const [openId, setOpenId] = useState(null);
   const contentRefs = useRef([]);
