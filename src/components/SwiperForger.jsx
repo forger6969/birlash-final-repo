@@ -1,8 +1,4 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
+import React from 'react'
 
 import slide1 from '../assets/slides/Снимок экрана 2025-11-30 205507.png'
 import slide2 from '../assets/slides/Снимок экрана 2025-11-30 205446.png'
@@ -10,45 +6,50 @@ import slide3 from '../assets/slides/Снимок экрана 2025-11-30 205438
 import slide4 from '../assets/slides/Снимок экрана 2025-11-30 205526.png'
 import slide5 from '../assets/slides/Снимок экрана 2025-11-30 205545.png'
 
-const slides = [
-    slide1,
-    slide2,
-    slide3,
-    slide4,
-    slide5,
-];
-
 export default function SwiperForger() {
-    return (
-        <div className="w-full max-w-[1400px] mx-auto py-10">
-            <Swiper
-                modules={[Navigation, Pagination, Autoplay]}
-                slidesPerView="auto"
-                centeredSlides={true}
-                loop={true}
-                spaceBetween={60}
-                speed={600}
-                pagination={{ clickable: true }}
-                autoplay={{
-                    delay: 2500,
-                    disableOnInteraction: false,
-                }}
 
-                className="apple-slider"
-            >
-                {slides.map((src, i) => (
-                    <SwiperSlide
-                        key={i}
-                        className="max-w-[1100px] transition-all duration-500 rounded-3xl overflow-hidden"
-                    >
-                        <img
-                            src={src}
-                            className="w-full h-[550px] object-cover rounded-3xl"
-                            alt=""
-                        />
-                    </SwiperSlide>
-                ))}
-            </Swiper>
-        </div>
+    return (
+        <>
+            <style>{`
+                @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+            
+                * {
+                    font-family: 'Poppins', sans-serif;
+                }
+            `}</style>
+            <div className='mt-30 mb-30'>
+
+                <h1 className="text-3xl font-semibold text-center mx-auto">Our Latest Creations</h1>
+                <p className="text-sm text-slate-500 text-center mt-2 max-w-lg mx-auto">A visual collection of our most recent works - each piece crafted with intention, emotion, and style.</p>
+                <div className="flex items-center gap-2 h-[400px] w-full max-w-7xl mt-10 mx-auto ">
+                    <div className="relative group flex-grow transition-all w-56 rounded-lg overflow-hidden h-[400px] duration-500 hover:w-full">
+                        <img className="h-full w-full object-cover object-center"
+                            src={slide1}
+                            alt="image" />
+                    </div>
+                    <div className="relative group flex-grow transition-all w-56 rounded-lg overflow-hidden h-[400px] duration-500 hover:w-full">
+                        <img className="h-full w-full object-cover object-center"
+                            src={slide2}
+                            alt="image" />
+                    </div>
+                    <div className="relative group flex-grow transition-all w-56 rounded-lg overflow-hidden h-[400px] duration-500 hover:w-full">
+                        <img className="h-full w-full object-cover object-center"
+                            src={slide3}
+                            alt="image" />
+                    </div>
+                    <div className="relative group flex-grow transition-all w-56 rounded-lg overflow-hidden h-[400px] duration-500 hover:w-full">
+                        <img className="h-full w-full object-cover object-center"
+                            src={slide4}
+                            alt="image" />
+                    </div>
+                    <div className="relative group flex-grow transition-all w-56 rounded-lg overflow-hidden h-[400px] duration-500 hover:w-full">
+                        <img className="h-full w-full object-cover object-center"
+                            src={slide5}
+                            alt="image" />
+                    </div>
+                </div>
+
+            </div>
+        </>
     );
-}
+};

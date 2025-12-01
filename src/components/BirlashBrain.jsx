@@ -6,7 +6,6 @@ const BirlashBrain = () => {
     return (
         <div>
 
-            <WordShowHidden words={[`tadbirkorlar`, 'hamkorlik', 'sarmoya', 'ekotizim']} />
 
         </div>
     )
