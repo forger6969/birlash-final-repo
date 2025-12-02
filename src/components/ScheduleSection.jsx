@@ -29,7 +29,7 @@ const ScheduleSection = () => {
         {/* CHART — scroll bo‘lganda animatsiya */}
         <div ref={chartRef} className="w-full md:w-1/2">
           <VictoryChart
-            domainPadding={{ x: 20 }}
+            domainPadding={{ x: 50 }}
             theme={VictoryTheme.clean}
             animate={
               isInView
@@ -74,7 +74,7 @@ const ScheduleSection = () => {
           <motion.a
             variants={fadeIn('up', 0.7)}
             href="#newsletter"
-            className="text-blue-500 font-semibold flex items-center gap-2 hover:gap-4 transition-all"
+            className="text-[#008B8B] font-semibold flex items-center gap-2 hover:gap-4 transition-all"
           >
             Contact
             <motion.svg
