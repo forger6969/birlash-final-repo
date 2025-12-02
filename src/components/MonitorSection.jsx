@@ -3,74 +3,67 @@ import { fadeIn, textVariant } from "../utils/motion";
 import 'swiper/css';
 import 'swiper/css/navigation';
 import monitorCardBg from '../assets/monitor-card.webp';
+import { useContext } from "react";
+import { AppContext } from "@/AppContext";
+import { useTranslation } from "react-i18next";
 
 const MonitorSection = () => {
+  const { theme } = useContext(AppContext)
+  const { isDark } = theme
+  const { t } = useTranslation()
+
+  // Динамические стили
+  const textColor = isDark ? "text-gray-300" : "text-gray-600";
+  const headingColor = isDark ? "text-white" : "text-[#004D57]";
+  const spanColor = isDark ? "text-yellow-400" : "text-[#C7A964]";
+  const bgColor = isDark ? "bg-[#232323]" : "bg-white";
 
   return (
-    <motion.section 
+    <motion.section
       variants={fadeIn('up', 0.2)}
       initial="hidden"
       whileInView="show"
       viewport={{ once: true }}
-      className="max-w-7xl mx-auto px-4 py-16 md:py-24"
+      className={` mx-auto px-4 py-16 md:py-24 ${bgColor}`}
     >
       <div className="flex flex-col md:flex-row items-center gap-12">
         {/* Left side - Content */}
-        <motion.div 
+        <motion.div
           variants={fadeIn('right', 0.3)}
           className="w-full md:w-1/2"
         >
-          <motion.span 
+          <motion.span
             variants={fadeIn('up', 0.4)}
-            className="text-emerald-500 font-semibold"
+            className={`font-semibold ${spanColor}`}
           >
-            MONITOR
+            {t("wallet_section.mini_head")}
           </motion.span>
-          <motion.h2 
+          <motion.h2
             variants={textVariant(0.5)}
-            className="text-3xl md:text-4xl font-bold text-navy-900 mt-4 mb-6 md:w-4/5"
+            className={`text-xl md:text-4xl font-bold mt-4 mb-6 md:w-4/5 ${headingColor}`}
           >
-            Introducing best mobile carousels
+            {t("wallet_section.head_item")}
+
           </motion.h2>
-          <motion.p 
+          <motion.p
             variants={fadeIn('up', 0.6)}
-            className="text-gray-600 mb-8 md:w-4/5"
+            className={`text-[13px] mb-8 md:w-4/5 ${textColor}`}
           >
-            Before the ship is really back. Round, round, all around the world. Round, all around the world. Round, all around the world. Round, all around the world.
+            {t("wallet_section.describe")}
+
           </motion.p>
-          <motion.a 
-            variants={fadeIn('up', 0.7)}
-            href="#" 
-            className="text-blue-500 font-semibold flex items-center gap-2 hover:gap-4 transition-all"
-          >
-            Learn more about monitoring
-            <motion.svg 
-              variants={fadeIn('left', 0.8)}
-              className="w-5 h-5" 
-              fill="none" 
-              stroke="currentColor" 
-              viewBox="0 0 24 24"
-            >
-              <path 
-                strokeLinecap="round" 
-                strokeLinejoin="round" 
-                strokeWidth={2} 
-                d="M17 8l4 4m0 0l-4 4m4-4H3" 
-              />
-            </motion.svg>
-          </motion.a>
         </motion.div>
 
-        {/* Right side - Swiper with background */}
-        <motion.div 
+        {/* Right side - Image */}
+        <motion.div
           variants={fadeIn('left', 0.3)}
           className="w-full md:w-1/2 relative"
         >
-          <motion.div 
+          <motion.div
             variants={fadeIn('up', 0.4)}
             className="p-4"
           >
-            <motion.img 
+            <motion.img
               variants={fadeIn('up', 0.5)}
               src={monitorCardBg}
               alt="Dashboard statistics"
@@ -83,4 +76,4 @@ const MonitorSection = () => {
   )
 }
 
-export default MonitorSection 
+export default MonitorSection

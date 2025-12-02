@@ -30,5 +30,61 @@
             "details": "Ta’lim bloklari (5 yo‘nalish):\n- Marketing\n- Moliyaviy boshqaruv\n- Soliqlar va huquqiy tuzilma\n- Franchayza va kengayish\n- Avtomatlashtirish va boshqaruv jarayonlari\n\nKlub tadbirlarining barcha formatlari:\n- Thematic Talks\n- Mastermind Sessions\n- Fail Talk — muvaffaqiyatsizliklar va xulosalar haqida ochiq uchrashuvlar.\n- Company Visit — rezident kompaniyalarga tashrif, amaliyot almashish.\n- Business Gap Evenings — norasmiy biznes kechalari."
         }
     ],
-    "feedback_text_form_card": "So'rov qoldiring va biz siz bilan bog'lanamiz."
+    "feedback_text_form_card": "So'rov qoldiring va biz siz bilan bog'lanamiz.",
+    "monitorSection": {
+        "head_item": "BIZNING KENG KO’LAMLI REJALARIMIZ",
+        "text_1": "QAYERDA BO’LSANGIZ XAM BARCHA FILLIALARIMGA KIRISH IMKONIYATI BO’LADI. BARCHA FILLIALARIMIZ O’ZBEK TILIDA O’ZBEKLAR UCHUN.",
+        "prioritets": "Bizning prioritetlarimiz"
+    },
+    "test": "test",
+    "package_section_tasir": {
+        "head_name": "TA'SIR",
+        "describe_mini": "Biznesingizni Tez O‘sishga Olib Chiquvchi Paket",
+        "describe": "TA’SIR — marketing, moliya, jarayonlar, soliq-huquqiy tuzilma va biznesni kengaytirish bo‘yicha amaliy tizimli yordam beradigan premium paket.",
+        "tasir": "TAS'IR",
+        "osish": "O'SISH",
+        "asos": "ASOS"
+    },
+    "wallet_section": {
+        "mini_head": "BIZNING KENG KO'LAMLI REJALARIMIZ",
+        "head_item": "O'ZBEK HAMJAMIYATLARI BILAN ALOQALAR",
+        "describe": "BARCHA DAVLATLARDAGI SAVDO ATASHELARIMIZ BILAN TO'G'RIDAN-TO'G'RI ALOQALAR\nBARCHA FILLIALARIMIZ O'ZBEK TILIDA O'ZBEKLAR UCHUN QAYERDA BO'LSANGIZ XAM BARCHA\nFILLIALARIMIZGA KIRISH IMKONIYATI BO'LADI."
+    },
+    "real_business_section": {
+        "title": "LEKSIYA EMAS — REAL BIZNES",
+        "subtitle": "YIRIK KORXONA VA HOLDINGLAR AMALIYOTCHILARIDAN",
+        "description": "SIZDA NAFAQAT BILIM — SIZDA TIZIMLI HARAKATLAR PAYDO BO‘LADI.",
+        "bullets": {
+            "item1": "3 OYLIK OFLAYN TA’LIM",
+            "item2": "YIRIK KORXONA AMALIYOTCHILARIDAN TAJRIBA"
+        },
+        "cards": {
+            "marketing": {
+                "title": "Natijali Marketing va Sotuv",
+                "text": "(Strategiya, PR, Reklama, Brand, Media, Shaxsiy Brend)"
+            },
+            "system": {
+                "title": "Tizimlash",
+                "text": "Biznes jarayonlarni standartlashtirish, avtomatlashtirish"
+            },
+            "finance": {
+                "title": "Moliya",
+                "text": "Hisobotlarni boshqarish, rejalashtirish, moliyaviy tahlil va nazorat"
+            },
+            "law": {
+                "title": "Soliq va Yurispridensiya",
+                "text": "Soliq kodeksi va huquqiy jarayonlar bo‘yicha qo‘llanma"
+            }
+        }
+    },
+    "form": {
+        "name": "Ismingiz",
+        "phone": "Telefon raqamingiz",
+        "comment": "Izoh yozing"
+    },
+    "menu": {
+        "home": "Bosh sahifa",
+        "about": "Biz haqimizda",
+        "service": "Xizmatlarimiz"
+    }
 }

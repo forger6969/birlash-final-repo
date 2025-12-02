@@ -1,78 +1,113 @@
-import scheduleImage from '../assets/stats.webp'
 import { motion } from "framer-motion";
 import { fadeIn, textVariant } from "../utils/motion";
+import { VictoryChart, VictoryBar, VictoryTheme } from 'victory';
+import { useRef, useContext } from "react";
+import { useInView } from "framer-motion";
+import { AppContext } from '@/AppContext';
+import { useTranslation } from "react-i18next";
+
+
 
 const ScheduleSection = () => {
+  const { theme } = useContext(AppContext);
+  const { isDark } = theme;
+
+  const chartRef = useRef(null);
+  const isInView = useInView(chartRef, { once: true, margin: "-100px" });
+  const { t } = useTranslation()
+
+  const sampleData = [
+    { x: t("package_section_tasir.asos"), y: 30 },
+    { x: t("package_section_tasir.osish"), y: 45 },
+    { x: t("package_section_tasir.tasir"), y: 60 },
+  ];
+
+  // динамические цвета
+  const textColor = isDark ? 'text-gray-200' : 'text-gray-800';
+  const subTextColor = isDark ? 'text-gray-400' : 'text-gray-600';
+  const linkColor = isDark ? 'text-teal-400' : 'text-[#008B8B]';
+  const chartColor = isDark ? "#22d3ee" : "#C7A964";
+  const bgColor = isDark ? 'bg-[#004D57]' : 'bg-white';
+
   return (
-    <motion.section 
+    <motion.section
       variants={fadeIn('up', 0.2)}
       initial="hidden"
       whileInView="show"
-      className="max-w-7xl mx-auto px-4 py-16 md:py-24"
+      className={`max-w-7xl mx-auto px-4 py-16 md:py-24 transition-colors duration-500 ${bgColor}`}
     >
       <div className="flex flex-col md:flex-row items-center justify-between gap-12 md:gap-24">
-        {/* Left side - Image */}
-        <motion.div 
-          variants={fadeIn('right', 0.3)}
-          className="w-full md:w-1/2"
-        >
-          <motion.img 
-            variants={fadeIn('up', 0.4)}
-            src={scheduleImage} 
-            alt="Statistics dashboard" 
-            className="w-full h-auto"
-          />
-        </motion.div>
 
-        {/* Right side - Content */}
-        <motion.div 
+        {/* CHART */}
+        <div ref={chartRef} className="w-full md:w-1/2">
+          <VictoryChart
+            domainPadding={{ x: 50 }}
+            theme={VictoryTheme.clean}
+            animate={
+              isInView
+                ? { duration: 1200, easing: "bounce" }
+                : undefined
+            }
+          >
+            <VictoryBar
+              data={sampleData}
+              style={{ data: { fill: chartColor } }}
+            />
+          </VictoryChart>
+        </div>
+
+        {/* Content */}
+        <motion.div
           variants={fadeIn('left', 0.3)}
           className="w-full md:w-1/2"
         >
-          <motion.span 
+          <motion.span
             variants={fadeIn('up', 0.4)}
-            className="text-[#C7A964] font-semibold"
+            className={`font-semibold ${linkColor}`}
           >
-            SCHEDULE
+            {t("package_section_tasir.tasir")}
           </motion.span>
-          <motion.h2 
+
+          <motion.h2
             variants={textVariant(0.5)}
-            className="text-3xl md:text-4xl font-bold text- mt-4 mb-6"
+            className={`text-3xl md:text-xl font-bold mt-4 mb-6 ${textColor}`}
           >
-            Streamline Your Business <br />
-            With Smart Scheduling Solutions
+            {t("package_section_tasir.describe_mini")}
           </motion.h2>
-          <motion.p 
+
+          <motion.p
             variants={fadeIn('up', 0.6)}
-            className="text-gray-600 mb-8"
+            className={`mb-8 ${subTextColor}`}
           >
-            Take control of your time and boost productivity with our intelligent scheduling system. Automate appointments, manage team availability, and deliver exceptional customer experiences through seamless calendar management.
+            {t("package_section_tasir.describe")}
           </motion.p>
-          <motion.a 
+
+          <motion.a
             variants={fadeIn('up', 0.7)}
-            href="#" 
-            className="text-blue-500 font-semibold flex items-center gap-2 hover:gap-4 transition-all"
+            href="#newsletter"
+            className={`font-semibold flex items-center gap-2 hover:gap-4 transition-all ${linkColor}`}
           >
-            Explore scheduling features
-            <motion.svg 
+            Contact
+            <motion.svg
               variants={fadeIn('left', 0.8)}
-              className="w-5 h-5" 
-              fill="none" 
-              stroke="currentColor" 
+              className="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
               viewBox="0 0 24 24"
             >
-              <path 
-                strokeLinecap="round" 
-                strokeLinejoin="round" 
-                strokeWidth={2} 
-                d="M17 8l4 4m0 0l-4 4m4-4H3" 
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
               />
             </motion.svg>
           </motion.a>
         </motion.div>
+
       </div>
     </motion.section>
-  )
-}
+  );
+};
 
-export default ScheduleSection
+export default ScheduleSection;

@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useContext } from "react";
 import { motion } from "framer-motion";
 import { fadeIn, textVariant } from "../utils/motion";
 
@@ -8,26 +8,16 @@ import { Autoplay, FreeMode } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/free-mode";
 import { useTranslation } from "react-i18next";
+import { AppContext } from "@/AppContext";
 
 const PurposeSection = () => {
   const { t } = useTranslation()
 
   const [isPlaying, setIsPlaying] = useState(true); // autoplay defaultda ON
   const swiperRef = useRef(null);
+  const { theme } = useContext(AppContext)
+  const { isDark } = theme
 
-  const handleClick = () => {
-
-
-    if (!swiperRef.current) return;
-
-    if (isPlaying) {
-      swiperRef.current.autoplay.stop();
-      setIsPlaying(false);
-    } else {
-      swiperRef.current.autoplay.start();
-      setIsPlaying(true);
-    }
-  };
 
   const features = [
     {
@@ -42,8 +32,8 @@ const PurposeSection = () => {
   ];
 
   return (
-    <section id="about" className="w-full bg-gray-50 py-12 px-4 sm:px-6 md:px-8 lg:px-10">
-      <div className="max-w-6xl mx-auto">
+    <section id="about" className={`w-full  py-12 px-4 sm:px-6 md:px-8 lg:px-10 ${isDark ? "bg-[#232323]" : "bg-[#004D57]"}`}>
+      <div className="min-w-6xl mx-auto">
         <motion.div
           variants={fadeIn("right", 0.2)}
           initial="hidden"
@@ -56,22 +46,19 @@ const PurposeSection = () => {
               variants={fadeIn("up", 0.4)}
               className="text-sm text-[#008B8B] font-medium mb-2"
             >
+
               Birlashish
             </motion.div>
 
             <motion.h2
               variants={textVariant(0.5)}
-              className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-snug md:w-4/5"
+              className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#C7A964] leading-snug md:w-4/5"
             >
+
               {t("swiper_card_section_item")}
             </motion.h2>
 
-            <button
-              onClick={handleClick}
-              className="mt-4 w-full sm:w-auto px-4 py-2 bg-blue-500 text-white rounded"
-            >
-              {isPlaying ? "To‘xtatish" : "Yurish"}
-            </button>
+
           </motion.div>
 
           {/* Right - Swiper */}
@@ -105,11 +92,11 @@ const PurposeSection = () => {
             >
               {[...features, ...features].map((f, i) => (
                 <SwiperSlide key={i}>
-                  <div className="h-[200px] p-6 bg-white rounded-lg shadow mr-3 sm:mr-4">
-                    <h3 className="text-lg sm:text-xl font-semibold mb-2 whitespace-normal">
+                  <div className={`min-h-[250px] p-6 rounded-lg shadow mr-3 sm:mr-4 ${isDark ? "bg-[#004D57]" : "bg-white"}`}>
+                    <h3 className={`text-lg sm:text-xl font-semibold mb-2 whitespace-normal ${isDark ? "text-white" : "text-black"}`}>
                       {f.title}
                     </h3>
-                    <p className="text-[#3B3B3B] text-sm sm:text-base">
+                    <p className={` text-sm sm:text-base ${isDark ? "text-[#ffffff6e]" : "text-[#3B3B3B]"}`}>
                       {f.description}
                     </p>
                   </div>

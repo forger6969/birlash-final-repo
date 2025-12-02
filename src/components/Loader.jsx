@@ -1,18 +1,20 @@
-// FullscreenLoader.jsx
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import { createPortal } from "react-dom";
 import { motion } from "framer-motion";
+import { AppContext } from "@/AppContext"; // путь к AppContext
 
 const FullscreenLoader = () => {
-    // Отключаем скролл страницы, пока лоадер открыт
+    const { theme } = useContext(AppContext);
+    const { isDark } = theme;
+
+    // Отключаем скролл страницы
     useEffect(() => {
         const prev = {
             overflow: document.body.style.overflow,
             touchAction: document.body.style.touchAction,
-            
         };
         document.body.style.overflow = "hidden";
-        document.body.style.touchAction = "none"; // чтобы убрать нежелательные свайпы на мобилах
+        document.body.style.touchAction = "none";
 
         return () => {
             document.body.style.overflow = prev.overflow;
@@ -20,37 +22,35 @@ const FullscreenLoader = () => {
         };
     }, []);
 
+    // Цвета для шариков
+    const ballColors = isDark
+        ? ["bg-indigo-400", "bg-indigo-500", "bg-indigo-600"]
+        : ["bg-blue-400", "bg-blue-500", "bg-blue-600"];
+
+    const overlayBg = isDark ? "bg-black/70" : "bg-white/70";
+
     const loaderContent = (
         <div
-            // важные классы: fixed + inset-0 + w-screen h-screen гарантируют покрытие viewport
             className="fixed inset-0 w-screen h-screen z-[9999] flex items-center justify-center"
             aria-hidden="true"
         >
-            {/* затемняющий фон (можно регулировать прозрачность) */}
-            <div className="absolute inset-0 bg-white/70 backdrop-blur-sm"></div>
+            {/* затемняющий фон */}
+            <div className={`absolute inset-0 ${overlayBg} backdrop-blur-sm`}></div>
 
-            {/* белый центрированный блок с лоадером */}
+            {/* лоадер */}
             <div className="relative z-10 rounded-2xl px-12 py-10 flex gap-5 items-center justify-center">
-                <motion.span
-                    className="w-6 h-6 bg-blue-600 rounded-full"
-                    animate={{ y: [0, -14, 0] }}
-                    transition={{ repeat: Infinity, duration: 0.6, ease: "easeInOut" }}
-                />
-                <motion.span
-                    className="w-6 h-6 bg-blue-500 rounded-full"
-                    animate={{ y: [0, -14, 0] }}
-                    transition={{ repeat: Infinity, duration: 0.6, ease: "easeInOut", delay: 0.12 }}
-                />
-                <motion.span
-                    className="w-6 h-6 bg-blue-400 rounded-full"
-                    animate={{ y: [0, -14, 0] }}
-                    transition={{ repeat: Infinity, duration: 0.6, ease: "easeInOut", delay: 0.24 }}
-                />
+                {ballColors.map((color, index) => (
+                    <motion.span
+                        key={index}
+                        className={`w-6 h-6 ${color} rounded-full`}
+                        animate={{ y: [0, -14, 0] }}
+                        transition={{ repeat: Infinity, duration: 0.6, ease: "easeInOut", delay: index * 0.12 }}
+                    />
+                ))}
             </div>
         </div>
     );
 
-    // Рендерим в document.body — тогда никакой родитель не сможет ограничить размер
     return typeof document !== "undefined" ? createPortal(loaderContent, document.body) : null;
 };
 
