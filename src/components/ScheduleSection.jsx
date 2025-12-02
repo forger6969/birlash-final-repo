@@ -4,11 +4,15 @@ import { VictoryChart, VictoryBar, VictoryTheme } from 'victory';
 import { useRef } from "react";
 import { useInView } from "framer-motion";
 
+const year = new Date().getFullYear();
+
+
+
 const sampleData = [
-  { x: "Jan", y: 20 },
-  { x: "Feb", y: 40 },
-  { x: "Mar", y: 30 },
-  { x: "Apr", y: 60 },
+  { x: (year - 3).toString(), y: 20 },
+  { x: (year - 2).toString(), y: 40 },
+  { x: (year - 1).toString(), y: 30 },
+  { x: year.toString(), y: 60 },
 ];
 
 const ScheduleSection = () => {

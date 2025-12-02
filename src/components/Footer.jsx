@@ -122,7 +122,7 @@ const Footer = () => {
                           whileHover={{ x: 5 }}
                           href={link.href} 
                           
-                          className="text-white text-sm font-medium relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full hover:text-blue-600 after:bg-blue-600 after:transition-all"
+                          className="text-white text-sm font-medium relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:transition-all hover:text-gray-400 after: transition-all"
                         >
                           {link.name}
                         </motion.a>
