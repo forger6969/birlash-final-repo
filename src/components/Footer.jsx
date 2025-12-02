@@ -2,7 +2,7 @@ import React from 'react'
 import { FaFacebookF, FaTwitter, FaLinkedinIn } from 'react-icons/fa'
 import { motion } from "framer-motion";
 import { fadeIn, textVariant } from "../utils/motion";
-import logos from "../assets/logos.svg"
+import logos from "../assets/logos.png"
 
 
 const Footer = () => {
@@ -52,10 +52,10 @@ const Footer = () => {
               className="flex items-center gap-1 mb-6"
             >
               <div className="w-20  opacity-75">
-                <img src={logos} alt="" />
+                <img width={50}  src={logos} alt="" />
               </div>
 
-              <span className="text-[25px] font-medium ml-1  text-white">Birlash</span>
+              <span className="text-[25px] font-bold ml-1  text-white">Birlash</span>
             </motion.div>
             <motion.p 
               variants={fadeIn('up', 0.6)}

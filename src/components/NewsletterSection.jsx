@@ -75,12 +75,14 @@ const NewsletterSection = () => {
         variants={fadeIn("up", 0.2)}
         initial="hidden"
         whileInView="show"
-        className="bg-blue-600 rounded-2xl overflow-hidden"
+        className="bg-[#004D57] rounded-2xl overflow-hidden"
       >
         <div className="relative md:px-16 px-6 py-16 md:py-24 flex justify-center">
           <motion.div
-            variants={fadeIn("left", 0.4)}
-            className="absolute top-0 right-0 w-1/2 h-full bg-blue-700 clip-path-slant hidden md:block"
+  variants={fadeIn("left", 0.4)}
+  className="absolute top-0 right-0 w-1/2 h-full 
+             bg-gradient-to-l from-[#008B8B] to-transparent 
+             clip-path-slant hidden md:block"
           ></motion.div>
 
           {/* ⬇⬇⬇ 2-КОЛОНОЧНАЯ СЕТКА: СЛЕВА КАРТОЧКИ, СПРАВА ФОРМА */}

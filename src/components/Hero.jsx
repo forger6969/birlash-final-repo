@@ -105,20 +105,20 @@ const Hero = () => {
       <motion.div
   className="w-full md:w-1/2 mt-16 md:mt-0 pl-0 md:pl-12 relative z-10"
   animate={{
-    x: [8, 8, -7, 5, 2],  // chap-o‘ng tebranish
-    y: [3, -6, 5, -5, 7],  // tepaga-pastga tebranish
+    x: [8, 8, -7, 5, 2],
+    y: [3, -6, 5, -5, 7],  
   }}
   transition={{
-    duration: 10,      // to‘liq sikl davomiyligi
-    repeat: Infinity, // doimiy takrorlanadi
-    ease: "easeInOut" // yumshoq harakat
+    duration: 10,      
+    repeat: Infinity, 
+    ease: "easeInOut" 
   }}
 >
   <div className="relative">
     <img
       src={heroImage}
       alt="Team meeting"
-      className="bottom-8 relative z-10 w-[10000px] hover:scale-[1.02] transition-transform duration-300"
+      className="bottom-8 relative z-10 w-[10000px] hover:scale-[1.02] transition-transform duration-300 pointer-events-none"
     />
   </div>
 </motion.div>

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { HiMenu, HiX } from 'react-icons/hi'
 import { motion } from "framer-motion";
 import { fadeIn } from "../utils/motion";
-import logos from "../assets/logos.svg"
+import logos from "../assets/logos.png"
 import LanguageSelector from './LanguageSelector';
 
 const Navbar = () => {
@@ -13,7 +13,6 @@ const Navbar = () => {
     { href: "#home", label: "Home" },
     { href: "#about", label: "About Us" },
     { href: "#services", label: "Our Service" },
-    { href: "#testimonials", label: "Testimonials" },
   ]
 
   return (
@@ -32,7 +31,7 @@ const Navbar = () => {
         >
           <motion.div
             whileHover={{ scale: 1.1 }} >
-            <img className='w-[80px] focus:w-[85px] transint' src={logos} alt="" />
+            <img className='w-[50px] focus:w-[85px] transint' src={logos} alt="" />
           </motion.div>
 
         </motion.div>
