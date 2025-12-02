@@ -31,59 +31,59 @@ const Footer = () => {
   }
 
   return (
-    <motion.footer 
+    <motion.footer
       variants={fadeIn('up', 0.2)}
       initial="hidden"
       whileInView="show"
       className="bg-[#004D57] "
     >
       <div className="section-container">
-        <motion.div 
+        <motion.div
           variants={fadeIn('up', 0.3)}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12"
         >
           {/* Brand Column */}
-          <motion.div 
+          <motion.div
             variants={fadeIn('right', 0.4)}
             className="lg:col-span-4"
           >
-            <motion.div 
+            <motion.div
               variants={fadeIn('down', 0.5)}
               className="flex items-center gap-1 mb-6"
             >
               <div className="w-20  opacity-75">
-                <img width={50}  src={logos} alt="" />
+                <img width={50} src={logos} alt="" />
               </div>
 
               <span className="text-[25px] font-bold ml-1  text-white">Birlash</span>
             </motion.div>
-            <motion.p 
+            <motion.p
               variants={fadeIn('up', 0.6)}
               className="text-gray-50 mb-6"
             >
               The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times.
             </motion.p>
-            <motion.div 
+            <motion.div
               variants={fadeIn('up', 0.7)}
               className="flex gap-4"
             >
-              <motion.a 
+              <motion.a
                 whileHover={{ scale: 1.1 }}
-                href="#" 
+                href="#"
                 className="w-10 h-10 bg-gray-0 text-white rounded-full flex items-center justify-center  hover:bg-blue-600 hover:text-white transition-colors"
               >
                 <FaFacebookF className="w-5 h-5" />
               </motion.a>
-              <motion.a 
+              <motion.a
                 whileHover={{ scale: 1.1 }}
-                href="#" 
+                href="#"
                 className="w-10 h-10 bg-gray-0 rounded-full flex items-center justify-center text-white hover:bg-blue-600 hover:text-white transition-colors"
               >
                 <FaTwitter className="w-5 h-5" />
               </motion.a>
-              <motion.a 
+              <motion.a
                 whileHover={{ scale: 1.1 }}
-                href="#" 
+                href="#"
                 className="w-10 h-10 bg-gray-0 rounded-full flex items-center justify-center text-white hover:bg-blue-700 hover:text-white transition-colors"
               >
                 <FaLinkedinIn className="w-5 h-5" />
@@ -92,36 +92,36 @@ const Footer = () => {
           </motion.div>
 
           {/* Links Columns */}
-          <motion.div 
+          <motion.div
             variants={fadeIn('left', 0.4)}
             className="lg:col-span-8"
           >
             <div className="grid text-white grid-cols-2 md:grid-cols-4 gap-8">
               {Object.entries(footerLinks).map(([category, links], categoryIndex) => (
-                <motion.div 
+                <motion.div
                   key={category}
                   variants={fadeIn('up', 0.3 * (categoryIndex + 1))}
                 >
-                  <motion.h3 
+                  <motion.h3
                     variants={textVariant(0.2)}
-                   
+
                     className="text-lg font-medium mb-4"
                   >
                     {category.charAt(0).toUpperCase() + category.slice(1)}
                   </motion.h3>
-                  <motion.ul 
+                  <motion.ul
                     variants={fadeIn('up', 0.4)}
                     className="space-y-3 "
                   >
                     {links.map((link, index) => (
-                      <motion.li 
+                      <motion.li
                         key={index}
                         variants={fadeIn('up', 0.1 * (index + 1))}
                       >
-                        <motion.a 
+                        <motion.a
                           whileHover={{ x: 5 }}
-                          href={link.href} 
-                          
+                          href={link.href}
+
                           className="text-white text-sm font-medium relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:transition-all hover:text-gray-400 after: transition-all"
                         >
                           {link.name}
@@ -136,25 +136,25 @@ const Footer = () => {
         </motion.div>
 
         {/* Copyright */}
-        <motion.div 
+        <motion.div
           variants={fadeIn('up', 0.8)}
           className="border-t border-gray-200 mt-12 pt-8"
         >
-          <motion.div 
+          <motion.div
             variants={fadeIn('up', 0.9)}
             className="flex flex-col md:flex-row justify-between items-center gap-4"
           >
-            <motion.p 
+            <motion.p
               variants={fadeIn('right', 1.0)}
               className="text-white text-sm"
             >
-              Copyright © {new Date().getFullYear()} 
+              Copyright © {new Date().getFullYear()}
             </motion.p>
-            <motion.p 
+            <motion.p
               variants={fadeIn('left', 1.0)}
               className="text-white text-sm"
             >
-              Created by Md Al Mamun
+              Created by example
             </motion.p>
           </motion.div>
         </motion.div>

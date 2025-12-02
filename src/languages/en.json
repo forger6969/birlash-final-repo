@@ -35,5 +35,56 @@
         "head_item": "OUR EXTENSIVE PLANS",
         "text_1": "YOU WILL HAVE ACCESS TO ALL MY BRANCHES WHEREVER YOU ARE. ALL OUR BRANCHES ARE IN UZBEKISTAN FOR UZBEKISTAN.",
         "prioritets": "Our priorities"
+    },
+    "test": "test",
+    "package_section_tasir": {
+        "head_name": "IMPACT",
+        "describe_mini": "Package for Accelerated Business Growth",
+        "describe": "TA’SIR — premium package providing practical systematic support in marketing, finance, processes, legal-tax structure, and business scaling.",
+        "tasir": "IMPACT",
+        "osish": "GROWTH",
+        "asos": "FOUNDATION"
+    },
+    "wallet_section": {
+        "mini_head": "OUR LARGE-SCALE PLANS",
+        "head_item": "CONNECTIONS WITH UZBEK COMMUNITIES",
+        "describe": "DIRECT COMMUNICATION WITH OUR TRADE ATTACHÉS IN ALL COUNTRIES.\nALL OUR BRANCHES OPERATE IN UZBEK FOR UZBEKS. NO MATTER WHERE YOU ARE, YOU WILL HAVE ACCESS TO ALL OUR BRANCHES."
+    },
+    "real_business_section": {
+        "title": "NOT LECTURES — REAL BUSINESS",
+        "subtitle": "FROM PRACTITIONERS OF LARGE COMPANIES AND HOLDINGS",
+        "description": "YOU WILL GAIN NOT JUST KNOWLEDGE — BUT SYSTEMATIC ACTIONS.",
+        "bullets": {
+            "item1": "3 MONTHS OF OFFLINE EDUCATION",
+            "item2": "EXPERIENCE FROM PRACTITIONERS OF LARGE COMPANIES"
+        },
+        "cards": {
+            "marketing": {
+                "title": "Effective Marketing & Sales",
+                "text": "(Strategy, PR, Advertising, Brand, Media, Personal Brand)"
+            },
+            "system": {
+                "title": "Systematization",
+                "text": "Standardizing and automating business processes"
+            },
+            "finance": {
+                "title": "Finance",
+                "text": "Managing reports, planning, financial analysis and control"
+            },
+            "law": {
+                "title": "Tax & Legal",
+                "text": "Guide on tax code and legal processes"
+            }
+        }
+    },
+    "form": {
+        "name": "Your name",
+        "phone": "Your phone",
+        "comment": "Write comment"
+    },
+    "menu": {
+        "home": "Home",
+        "about": "About Us",
+        "service": "Our Service"
     }
 }

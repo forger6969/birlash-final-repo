@@ -36,14 +36,21 @@ const MonitorSection = () => {
             variants={fadeIn('up', 0.4)}
             className={`font-semibold ${spanColor}`}
           >
-            {t("monitorSection.head_item")}
+            {t("wallet_section.mini_head")}
           </motion.span>
+          <motion.h2
+            variants={textVariant(0.5)}
+            className={`text-xl md:text-4xl font-bold mt-4 mb-6 md:w-4/5 ${headingColor}`}
+          >
+            {t("wallet_section.head_item")}
 
+          </motion.h2>
           <motion.p
             variants={fadeIn('up', 0.6)}
             className={`text-[13px] mb-8 md:w-4/5 ${textColor}`}
           >
-            {t("monitorSection.text_1")}
+            {t("wallet_section.describe")}
+
           </motion.p>
         </motion.div>
 

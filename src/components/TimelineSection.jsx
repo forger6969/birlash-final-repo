@@ -1,10 +1,12 @@
 import React, { useState, useMemo, useContext } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { AppContext } from '@/AppContext';
+import { useTranslation } from "react-i18next";
 
 export default function TimelineSection({ bgImage = "/world-map.png" }) {
     const { theme } = useContext(AppContext);
     const { isDark } = theme;
+    const { t } = useTranslation()
 
     const years = [
         { year: "2026", cities: ["Samarqand", "Buxoro", "Xorazm", "Farg'ona"] },
@@ -52,10 +54,10 @@ export default function TimelineSection({ bgImage = "/world-map.png" }) {
     const descText = isDark ? 'text-gray-300' : 'text-slate-700';
 
     return (
-        <section className={`relative border border-slate-200 overflow-hidden transition-colors duration-500 ${bgColor}`}> 
+        <section className={`relative border border-slate-200 overflow-hidden transition-colors duration-500 ${bgColor}`}>
             <div className="px-6 md:px-12 py-6 md:py-8 flex items-center justify-between">
                 <h2 className={`text-lg md:text-2xl font-extrabold tracking-tight ${textColor}`}>
-                    BIZNING KENG KO’LAMLI REJALARIMIZ
+                    {t("monitorSection.head_item")}
                 </h2>
                 <div className="w-11 h-11 md:w-12 md:h-12 rounded-full bg-teal-600 text-white flex items-center justify-center font-bold shadow">
                     B
@@ -141,7 +143,7 @@ export default function TimelineSection({ bgImage = "/world-map.png" }) {
                                                         <motion.div className={`font-semibold ${textColor} text-sm md:text-base truncate`}>
                                                             {city.toUpperCase()}
                                                         </motion.div>
-                                                        <motion.div className={`text-xs ${subTextColor}`}>Приоритетный филиал</motion.div>
+                                                        <motion.div className={`text-xs ${subTextColor}`}>{t("monitorSection.prioritets")}</motion.div>
                                                     </div>
 
                                                     <div className="hidden md:flex">
@@ -160,7 +162,7 @@ export default function TimelineSection({ bgImage = "/world-map.png" }) {
                                     transition={{ duration: 0.28 }}
                                     className={`mt-8 font-semibold text-sm md:text-base leading-snug ${descText}`}
                                 >
-                                    QAYERDA BO’LSANGIZ XAM BARCHA FILLIALARIMGA KIRISH IMKONIYATI BO’LADI. BARCHA FILLIALARIMIZ O’ZBEK TILIDA O’ZBEKLAR UCHUN.
+                                    {t("monitorSection.text_1")}
                                 </motion.p>
                             </div>
                         </div>

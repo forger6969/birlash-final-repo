@@ -4,12 +4,9 @@ import { VictoryChart, VictoryBar, VictoryTheme } from 'victory';
 import { useRef, useContext } from "react";
 import { useInView } from "framer-motion";
 import { AppContext } from '@/AppContext';
+import { useTranslation } from "react-i18next";
 
-const sampleData = [
-  { x: "Asos", y: 30 },
-  { x: "O'SISH", y: 45 },
-  { x: "TA'SIR", y: 60 },
-];
+
 
 const ScheduleSection = () => {
   const { theme } = useContext(AppContext);
@@ -17,6 +14,13 @@ const ScheduleSection = () => {
 
   const chartRef = useRef(null);
   const isInView = useInView(chartRef, { once: true, margin: "-100px" });
+  const { t } = useTranslation()
+
+  const sampleData = [
+    { x: t("package_section_tasir.asos"), y: 30 },
+    { x: t("package_section_tasir.osish"), y: 45 },
+    { x: t("package_section_tasir.tasir"), y: 60 },
+  ];
 
   // динамические цвета
   const textColor = isDark ? 'text-gray-200' : 'text-gray-800';
@@ -61,22 +65,21 @@ const ScheduleSection = () => {
             variants={fadeIn('up', 0.4)}
             className={`font-semibold ${linkColor}`}
           >
-            TA’SIR
+            {t("package_section_tasir.tasir")}
           </motion.span>
 
           <motion.h2
             variants={textVariant(0.5)}
             className={`text-3xl md:text-xl font-bold mt-4 mb-6 ${textColor}`}
           >
-            Biznesingizni Tez O‘sishga Olib <br />
-            Chiquvchi Paket
+            {t("package_section_tasir.describe_mini")}
           </motion.h2>
 
           <motion.p
             variants={fadeIn('up', 0.6)}
             className={`mb-8 ${subTextColor}`}
           >
-            TA’SIR — marketing, moliya, jarayonlar, soliq-huquqiy tuzilma va biznesni kengaytirish bo‘yicha amaliy tizimli yordam beradigan premium paket.
+            {t("package_section_tasir.describe")}
           </motion.p>
 
           <motion.a

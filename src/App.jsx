@@ -19,8 +19,9 @@ import { useEffect, useState } from 'react'
 import { Theater } from 'lucide-react'
 
 function App() {
+  const theme = JSON.parse(localStorage.getItem(`theme`))
 
-  const [isDark, setTheme] = useState(false)
+  const [isDark, setTheme] = useState(theme || false)
 
   return (
     <AppContext.Provider value={{
