@@ -4,15 +4,13 @@ import { VictoryChart, VictoryBar, VictoryTheme } from 'victory';
 import { useRef } from "react";
 import { useInView } from "framer-motion";
 
-const year = new Date().getFullYear();
 
 
 
 const sampleData = [
-  { x: (year - 3).toString(), y: 20 },
-  { x: (year - 2).toString(), y: 40 },
-  { x: (year - 1).toString(), y: 30 },
-  { x: year.toString(), y: 60 },
+  { x: "Asos", y: 30 },
+  { x: "O'SISH", y: 45 },
+  { x: "TA'SIR", y: 60 },
 ];
 
 const ScheduleSection = () => {
@@ -31,7 +29,7 @@ const ScheduleSection = () => {
         {/* CHART — scroll bo‘lganda animatsiya */}
         <div ref={chartRef} className="w-full md:w-1/2">
           <VictoryChart
-            domainPadding={{ x: 20 }}
+            domainPadding={{ x: 50 }}
             theme={VictoryTheme.clean}
             animate={
               isInView
@@ -55,28 +53,28 @@ const ScheduleSection = () => {
             variants={fadeIn('up', 0.4)}
             className="text-[#C7A964] font-semibold"
           >
-            BIRLASH MISSIYASI
+            TA’SIR
           </motion.span>
 
           <motion.h2
             variants={textVariant(0.5)}
             className="text-3xl md:text-xl font-bold mt-4 mb-6"
           >
-            BIZ TADBIRKORLARNI, TA'LIM VA INVESTITSIYALARNI <br />
-            BIRLASHTIRAMIZ, G'OYALAR BIZNESGA
+            Biznesingizni Tez O‘sishga Olib <br />
+            Chiquvchi Paket
           </motion.h2>
 
           <motion.p
             variants={fadeIn('up', 0.6)}
             className="text-gray-600 mb-8"
           >
-            BIRLASH — kuchli va barqaror yangi avlod bizneslari uchun amaliyotchilar maskani. Bu yerda har bir a’zo motivatsiya emas, balki haqiqiy o‘sish vositalari, resurslar va aloqalarni qo‘lga kiritadi.
+            TA’SIR — marketing, moliya, jarayonlar, soliq-huquqiy tuzilma va biznesni kengaytirish bo‘yicha amaliy tizimli yordam beradigan premium paket.
           </motion.p>
 
           <motion.a
             variants={fadeIn('up', 0.7)}
             href="#newsletter"
-            className="text-blue-500 font-semibold flex items-center gap-2 hover:gap-4 transition-all"
+            className="text-[#008B8B] font-semibold flex items-center gap-2 hover:gap-4 transition-all"
           >
             Contact
             <motion.svg
