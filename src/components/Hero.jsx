@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { motion } from "framer-motion";
 import { fadeIn, textVariant } from "../utils/motion";
 import heroImage from "../assets/imgs.png";
@@ -6,9 +6,12 @@ import { useTranslation } from "react-i18next";
 
 // shadcn background beams
 import { BackgroundBeams } from "@/components/ui/shadcn-io/background-beams";
+import { AppContext } from "@/AppContext";
 
 const Hero = () => {
   const { t } = useTranslation();
+  const { theme } = useContext(AppContext)
+  const { isDark } = theme
 
   const fadeIn = (direction = "up", delay = 0) => {
     let x = 0, y = 0;
@@ -16,7 +19,7 @@ const Hero = () => {
     if (direction === "right") x = [50, 0];
     if (direction === "up") y = [50, 0];
     if (direction === "down") y = [-50, 0];
-  
+
     return {
       hidden: { opacity: 0, x: 0, y: 0 },
       show: {
@@ -31,7 +34,7 @@ const Hero = () => {
       }
     };
   };
-  
+
 
   return (
     <section
@@ -40,7 +43,7 @@ const Hero = () => {
       px-4 sm:px-6 lg:px-8 pt-44 pb-16 container mx-auto overflow-hidden"
     >
       {/* Background Effect */}
-      <BackgroundBeams className="absolute inset-0 pointer-events-none" />
+      <BackgroundBeams className={`absolute inset-0 pointer-events-none ${isDark ? "bg-[#232323]":"bg-white"}`} />
 
       {/* Left Column */}
       <div className="w-full md:w-1/2 space-y-8 relative z-10">
@@ -79,9 +82,9 @@ const Hero = () => {
           whileInView="show"
           className="flex gap-3 max-w-md"
         >
-<a href="#newsletter">
-  <button
-    className="
+          <a href="#newsletter">
+            <button
+              className="
       bg-[#008B8B] 
       text-white
       px-8 py-4
@@ -93,35 +96,35 @@ const Hero = () => {
       hover:shadow-[0_6px_20px_rgba(199,169,100,0.35)]
       active:scale-95
     "
-  >
-    {t('hero_contact_us')}
-  </button>
-</a>
+            >
+              {t('hero_contact_us')}
+            </button>
+          </a>
         </motion.div>
       </div>
 
       {/* Right Column */}
 
       <motion.div
-  className="w-full md:w-1/2 mt-16 md:mt-0 pl-0 md:pl-12 relative z-10"
-  animate={{
-    x: [8, 8, -7, 5, 2],
-    y: [3, -6, 5, -5, 7],  
-  }}
-  transition={{
-    duration: 10,      
-    repeat: Infinity, 
-    ease: "easeInOut" 
-  }}
->
-  <div className="relative">
-    <img
-      src={heroImage}
-      alt="Team meeting"
-      className="bottom-8 relative z-10 w-[10000px] hover:scale-[1.02] transition-transform duration-300 pointer-events-none"
-    />
-  </div>
-</motion.div>
+        className="w-full md:w-1/2 mt-16 md:mt-0 pl-0 md:pl-12 relative z-10"
+        animate={{
+          x: [8, 8, -7, 5, 2],
+          y: [3, -6, 5, -5, 7],
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      >
+        <div className="relative">
+          <img
+            src={heroImage}
+            alt="Team meeting"
+            className="bottom-8 relative z-10 w-[10000px] hover:scale-[1.02] transition-transform duration-300 pointer-events-none"
+          />
+        </div>
+      </motion.div>
 
     </section>
   );
