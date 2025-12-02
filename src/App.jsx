@@ -13,6 +13,7 @@ import SwiperForger from './components/SwiperForger'
 import BirlashBrain from './components/BirlashBrain'
 import BusinessParticles from './components/BusinessParticles'
 import { MorphingDialogBasicTwo } from './components/MorphingDialogBasicTwo'
+import TimelineSection from './components/TimelineSection'
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <PurposeSection />
         <BirlashBrain />
         <SwiperForger />
+        <TimelineSection />
         <ScheduleSection />
         <MonitorSection />
         <ServicesSection />
