@@ -26,9 +26,9 @@ function App() {
         <PurposeSection />
         <BirlashBrain />
         <SwiperForger />
-        <ScheduleSection />
         <MonitorSection />
         <ServicesSection />
+        <ScheduleSection />
         <TestimonialsSection />
         <NewsletterSection />
         <Footer />
