@@ -32,7 +32,7 @@ const Navbar = () => {
         >
           <motion.div
             whileHover={{ scale: 1.1 }} >
-            <img className='w-[75px]' src={logos} alt="" />
+            <img className='w-[80px] focus:w-[85px] transint' src={logos} alt="" />
           </motion.div>
 
         </motion.div>
@@ -54,18 +54,32 @@ const Navbar = () => {
           variants={fadeIn('down', 0.3)}
           className="hidden md:flex items-center gap-10"
         >
-          {navLinks.map((link, index) => (
-            <motion.a
-              key={index}
-              variants={fadeIn('down', 0.1 * (index + 1))}
-              href={link.href}
-              onClick={() => setActiveLink(link.href)}
-              className={`text-sm font-medium relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-blue-600 after:transition-all
-                ${activeLink === link.href ? 'text-blue-600 after:w-full  ' : 'text-white hover:text-blue-600'}`}
-            >
-              {link.label}
-            </motion.a>
-          ))}
+{navLinks.map((link, index) => (
+  <motion.a
+    key={index}
+    variants={fadeIn("down", 0.1 * (index + 1))}
+    href={link.href}
+    onClick={() => setActiveLink(link.href)}
+    className={`
+      px-2.5 py-1.5     /* juda yaqin holat */
+      rounded-md        /* pill juda nozik */
+      text-sm font-medium
+      transition-all duration-200
+
+      ${
+        activeLink === link.href
+          ? "bg-[#008B8B] text-white shadow-[0_0_8px_rgba(0,139,139,0.22)]"
+          : "text-[#C7A964]"
+      }
+
+      hover:${activeLink === link.href ? "" : "bg-[#008B8B]/12"}
+      focus:bg-[#008B8B] focus:text-white
+    `}
+  >
+    {link.label}
+  </motion.a>
+))}
+
 
           <div className='flex items-center gap-[25px]'>
 
@@ -108,9 +122,9 @@ const Navbar = () => {
                   setActiveLink(link.href);
                   setIsMenuOpen(false);
                 }}
-                className={`block text-sm font-medium py-2
-                  ${activeLink === link.href ? 'text-blue-600' : 'text-white hover:text-blue-600'}`}
+                className={`text-white block text-sm font-medium py-2`}
               >
+                
                 {link.label}
               </motion.a>
             ))}
