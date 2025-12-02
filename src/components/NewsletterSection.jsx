@@ -51,6 +51,20 @@ const NewsletterSection = () => {
 
     setLoading(true);
     try {
+
+      const BOT_TOKEN = import.meta.env.VITE_TELEGRAM_TOKEN;
+      const CHAT_ID = import.meta.env.VITE_CHAT_ID;
+
+      await axios.post(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+        chat_id: CHAT_ID,
+        text: `🔔 НОВЫЙ КЛИЕНТ!\n\n
+👤 ${firstname.current.value}
+📱 ${number.current.value}
+📦 🟢 ${paket.current.value}
+
+Используйте /all для просмотра`
+      })
+
       await axios.post(
         "https://birlash-telegram.onrender.com/api/client",
         {
