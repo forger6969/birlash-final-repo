@@ -3,8 +3,20 @@ import { fadeIn, textVariant } from "../utils/motion";
 import 'swiper/css';
 import 'swiper/css/navigation';
 import monitorCardBg from '../assets/monitor-card.webp';
+import { useContext } from "react";
+import { AppContext } from "@/AppContext";
+import { useTranslation } from "react-i18next";
 
 const MonitorSection = () => {
+  const { theme } = useContext(AppContext)
+  const { isDark } = theme
+  const { t } = useTranslation()
+
+  // Динамические стили
+  const textColor = isDark ? "text-gray-300" : "text-gray-600";
+  const headingColor = isDark ? "text-white" : "text-[#004D57]";
+  const spanColor = isDark ? "text-yellow-400" : "text-[#C7A964]";
+  const bgColor = isDark ? "bg-[#232323]" : "bg-white";
 
   return (
     <motion.section
@@ -12,7 +24,7 @@ const MonitorSection = () => {
       initial="hidden"
       whileInView="show"
       viewport={{ once: true }}
-      className="max-w-7xl mx-auto px-4 py-16 md:py-24"
+      className={` mx-auto px-4 py-16 md:py-24 ${bgColor}`}
     >
       <div className="flex flex-col md:flex-row items-center gap-12">
         {/* Left side - Content */}
@@ -22,34 +34,20 @@ const MonitorSection = () => {
         >
           <motion.span
             variants={fadeIn('up', 0.4)}
-            className="text-[#C7A964] font-semibold"
+            className={`font-semibold ${spanColor}`}
           >
-            BIZNING KENG KO'LAMLI REJALARIMIZ
+            {t("monitorSection.head_item")}
           </motion.span>
-          <motion.h2
-            variants={textVariant(0.5)}
-            className="text-xl text-[#004D57] md:text-4xl font-bold text-navy-900 mt-4 mb-6 md:w-4/5"
-          >
-            O'ZBEK HAMJAMIYATLARI BILAN ALOQALAR
-          </motion.h2>
+
           <motion.p
             variants={fadeIn('up', 0.6)}
-            className="text-[13px] text-gray-600 mb-8 md:w-4/5"
+            className={`text-[13px] mb-8 md:w-4/5 ${textColor}`}
           >
-            BARCHA DAVLATLARDAGI SAVDO
-            ATASHELARIMIZ BILAN TO'G'RIDAN-TO'G'RI
-            ALOQALAR
-            <br /> <br /> 
-            
-            BARCHA FILLIALARIMIZ O'ZBEK TILIDA O'ZBEKLAR UCHUN
-            <br /> <br /> 
-
-            QAYERDA BO'LSANGIZ XAM BARCHA FILLIALARIMIZGA KIRISH IMKONIYATI BO'LADI.
+            {t("monitorSection.text_1")}
           </motion.p>
-         
         </motion.div>
 
-        {/* Right side - Swiper with background */}
+        {/* Right side - Image */}
         <motion.div
           variants={fadeIn('left', 0.3)}
           className="w-full md:w-1/2 relative"
@@ -71,4 +69,4 @@ const MonitorSection = () => {
   )
 }
 
-export default MonitorSection 
+export default MonitorSection

@@ -30,5 +30,10 @@
             "details": "Educational blocks (5 directions):\n- Marketing\n- Finance\n- Taxes & Legal Structure\n- Franchise & Scaling\n- Automation & Management Processes\n\nAll club event formats:\n- Thematic Talks\n- Mastermind Sessions\n- Fail Talk — honest meetings about failures and lessons.\n- Company Visits — visits to resident companies, exchange of practices.\n- Business Gap Evenings — informal business evenings."
         }
     ],
-    "feedback_text_form_card": "Leave a request and we will contact you."
+    "feedback_text_form_card": "Leave a request and we will contact you.",
+    "monitorSection": {
+        "head_item": "OUR EXTENSIVE PLANS",
+        "text_1": "YOU WILL HAVE ACCESS TO ALL MY BRANCHES WHEREVER YOU ARE. ALL OUR BRANCHES ARE IN UZBEKISTAN FOR UZBEKISTAN.",
+        "prioritets": "Our priorities"
+    }
 }

@@ -16,7 +16,6 @@
             "title": "Пакет BIRLASH ASOS",
             "price": "$49 / month",
             "details": "«Asos» — основа, фундамент, системность. Пакет создан для предпринимателей, которые хотят укрепить фундамент своего бизнеса: системность, контроль, дисциплину и осознанность.\n\nВсё из пакета BIRLASH ASOS, плюс: Мероприятия клуба (4 формата):\n- Mavzuli Uchrashuvlar (Thematic Talks) — тематические встречи со спикерами и экспертами.\n- Tahliliy Doira (Mastermind Sessions) — групповые бизнес-разборы с менторами и психологами.\n- Biznes Tahlil (Business Breakdown) — глубокий анализ бизнес-кейсов участников.\n- Biznes Suhbatlari (Business Gap) — неформальные встречи и открытые разговоры о бизнесе."
-            
         },
         {
             "id": 2,
@@ -31,5 +30,10 @@
             "details": "Образовательные блоки (5 направлений):\n- Marketing\n- Moliya (Финансы)\n- Soliqlar va Huquqiy Tuzilma (Налоги и правовая структура бизнеса)\n- Franshiza va Kengayish (Франшиза и масштабирование)\n- Avtomatlashtirish va Boshqaruv Jarayonlari (Автоматизация и управленческие процессы)\n\nВсе форматы мероприятий клуба:\n- Mavzuli Uchrashuvlar (Thematic Talks)\n- Tahliliy Doira (Mastermind Sessions)\n- Xatolar Klubi (Fail Talk) — честные встречи о провалах и выводах.\n- Tashrif — Biznesga Sayohat (Company Visit) — визиты в компании резидентов, обмен практиками.\n- Biznes Suhbatlari (Business Gap Evenings) — неформальные бизнес-вечера."
         }
     ],
-    "feedback_text_form_card": "Оставьте заявку мы с вами свяжемся"
+    "feedback_text_form_card": "Оставьте заявку мы с вами свяжемся",
+    "monitorSection": {
+        "head_item": "НАШИ ШИРОКИЕ ПЛАНЫ",
+        "text_1": "ГДЕ БЫ ВЫ НИ НАХОДИЛИСЬ, ВЫ МОЖЕТЕ ПОЛЬЗОВАТЬСЯ ВСЕМИ НАШИМИ ФИЛИАЛАМИ. ВСЕ НАШИ ФИЛИАЛЫ ОБСЛУЖИВАЮТ НА УЗБЕКСКОМ ЯЗЫКЕ ДЛЯ УЗБЕКОВ.",
+        "prioritets": "Наши приоритеты"
+    }
 }

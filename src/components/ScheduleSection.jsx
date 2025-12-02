@@ -1,11 +1,9 @@
 import { motion } from "framer-motion";
 import { fadeIn, textVariant } from "../utils/motion";
 import { VictoryChart, VictoryBar, VictoryTheme } from 'victory';
-import { useRef } from "react";
+import { useRef, useContext } from "react";
 import { useInView } from "framer-motion";
-
-
-
+import { AppContext } from '@/AppContext';
 
 const sampleData = [
   { x: "Asos", y: 30 },
@@ -14,19 +12,29 @@ const sampleData = [
 ];
 
 const ScheduleSection = () => {
+  const { theme } = useContext(AppContext);
+  const { isDark } = theme;
+
   const chartRef = useRef(null);
   const isInView = useInView(chartRef, { once: true, margin: "-100px" });
+
+  // динамические цвета
+  const textColor = isDark ? 'text-gray-200' : 'text-gray-800';
+  const subTextColor = isDark ? 'text-gray-400' : 'text-gray-600';
+  const linkColor = isDark ? 'text-teal-400' : 'text-[#008B8B]';
+  const chartColor = isDark ? "#22d3ee" : "#C7A964";
+  const bgColor = isDark ? 'bg-[#004D57]' : 'bg-white';
 
   return (
     <motion.section
       variants={fadeIn('up', 0.2)}
       initial="hidden"
       whileInView="show"
-      className="max-w-7xl mx-auto px-4 py-16 md:py-24"
+      className={`max-w-7xl mx-auto px-4 py-16 md:py-24 transition-colors duration-500 ${bgColor}`}
     >
       <div className="flex flex-col md:flex-row items-center justify-between gap-12 md:gap-24">
 
-        {/* CHART — scroll bo‘lganda animatsiya */}
+        {/* CHART */}
         <div ref={chartRef} className="w-full md:w-1/2">
           <VictoryChart
             domainPadding={{ x: 50 }}
@@ -39,7 +47,7 @@ const ScheduleSection = () => {
           >
             <VictoryBar
               data={sampleData}
-              style={{ data: { fill: "#C7A964" } }}
+              style={{ data: { fill: chartColor } }}
             />
           </VictoryChart>
         </div>
@@ -51,14 +59,14 @@ const ScheduleSection = () => {
         >
           <motion.span
             variants={fadeIn('up', 0.4)}
-            className="text-[#C7A964] font-semibold"
+            className={`font-semibold ${linkColor}`}
           >
             TA’SIR
           </motion.span>
 
           <motion.h2
             variants={textVariant(0.5)}
-            className="text-3xl md:text-xl font-bold mt-4 mb-6"
+            className={`text-3xl md:text-xl font-bold mt-4 mb-6 ${textColor}`}
           >
             Biznesingizni Tez O‘sishga Olib <br />
             Chiquvchi Paket
@@ -66,7 +74,7 @@ const ScheduleSection = () => {
 
           <motion.p
             variants={fadeIn('up', 0.6)}
-            className="text-gray-600 mb-8"
+            className={`mb-8 ${subTextColor}`}
           >
             TA’SIR — marketing, moliya, jarayonlar, soliq-huquqiy tuzilma va biznesni kengaytirish bo‘yicha amaliy tizimli yordam beradigan premium paket.
           </motion.p>
@@ -74,7 +82,7 @@ const ScheduleSection = () => {
           <motion.a
             variants={fadeIn('up', 0.7)}
             href="#newsletter"
-            className="text-[#008B8B] font-semibold flex items-center gap-2 hover:gap-4 transition-all"
+            className={`font-semibold flex items-center gap-2 hover:gap-4 transition-all ${linkColor}`}
           >
             Contact
             <motion.svg

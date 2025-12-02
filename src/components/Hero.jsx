@@ -43,7 +43,7 @@ const Hero = () => {
       px-4 sm:px-6 lg:px-8 pt-44 pb-16 container mx-auto overflow-hidden"
     >
       {/* Background Effect */}
-      <BackgroundBeams className={`absolute inset-0 pointer-events-none ${isDark ? "bg-[#232323]":"bg-white"}`} />
+      <BackgroundBeams className={`absolute inset-0 pointer-events-none ${isDark ? "bg-[#232323]" : "bg-white"}`} />
 
       {/* Left Column */}
       <div className="w-full md:w-1/2 space-y-8 relative z-10">
@@ -57,10 +57,10 @@ const Hero = () => {
           variants={textVariant(0.3)}
           initial="hidden"
           whileInView="show"
-          className="text-4xl md:text-5xl lg:text-6xl font-bold taxt-[] leading-tight"
+          className={`text-4xl md:text-5xl lg:text-6xl font-bold taxt-[] leading-tight ${isDark ? "text-[#004D57]" : "text-black"}`}
         >
           {t("hero_item_1_part")}
-          <span className="text-[#004D57] relative inline-block">
+          <span className={` relative inline-block ${isDark ? "text-white" : "text-[#004D57]"}`}>
             {t("hero_item_2_part")}
             <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-200/60"></span>
           </span>{" "}

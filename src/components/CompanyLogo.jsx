@@ -3,14 +3,18 @@ import amazon from '../assets/amazon.png'
 import woocommerce from '../assets/woocommerce.png'
 import meundies from '../assets/meundies.png'
 import sitepoint from '../assets/sitepoint.png'
+import { AppContext } from '@/AppContext'
+import { useContext } from 'react'
 
 const CompanyLogo = () => {
   const logos = [slack, amazon, woocommerce, meundies, sitepoint];
+  const { theme } = useContext(AppContext)
+  const { isDark } = theme
 
   return (
-    <div className="w-full container mx-auto py-20 overflow-hidden flex  flex-col sm:flex-row sm:items-center items-start ">
-      <div className="py-4 w-[300px] shrink-0 px-8 text-gray-600 border-l-4 border-blue-500 bg-white  z-10 sm:text-base text-xl font-semibold sm:text-left  mb-8 sm:mb-0">
-        Partner 
+    <div className={`w-full container mx-auto py-20 overflow-hidden flex  flex-col sm:flex-row sm:items-center items-start ${isDark ? "bg-[#004D57]" : "bg-white"}`}>
+      <div className={`py-4 w-[300px] shrink-0 px-8 text-gray-600 border-l-4 border-blue-500  z-10 sm:text-base text-xl font-semibold sm:text-left  mb-8 sm:mb-0 bg-white`}>
+        Partner
       </div>
       <div className="flex animate-marquee whitespace-nowrap">
         {logos.map((logo, index) => (

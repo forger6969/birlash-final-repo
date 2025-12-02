@@ -30,5 +30,10 @@
             "details": "Ta’lim bloklari (5 yo‘nalish):\n- Marketing\n- Moliyaviy boshqaruv\n- Soliqlar va huquqiy tuzilma\n- Franchayza va kengayish\n- Avtomatlashtirish va boshqaruv jarayonlari\n\nKlub tadbirlarining barcha formatlari:\n- Thematic Talks\n- Mastermind Sessions\n- Fail Talk — muvaffaqiyatsizliklar va xulosalar haqida ochiq uchrashuvlar.\n- Company Visit — rezident kompaniyalarga tashrif, amaliyot almashish.\n- Business Gap Evenings — norasmiy biznes kechalari."
         }
     ],
-    "feedback_text_form_card": "So'rov qoldiring va biz siz bilan bog'lanamiz."
+    "feedback_text_form_card": "So'rov qoldiring va biz siz bilan bog'lanamiz.",
+    "monitorSection": {
+        "head_item": "BIZNING KENG KO’LAMLI REJALARIMIZ",
+        "text_1": "QAYERDA BO’LSANGIZ XAM BARCHA FILLIALARIMGA KIRISH IMKONIYATI BO’LADI. BARCHA FILLIALARIMIZ O’ZBEK TILIDA O’ZBEKLAR UCHUN.",
+        "prioritets": "Bizning prioritetlarimiz"
+    }
 }

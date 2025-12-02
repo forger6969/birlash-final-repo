@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useContext } from "react";
 import { motion } from "framer-motion";
 import { fadeIn, textVariant } from "../utils/motion";
 
@@ -8,12 +8,15 @@ import { Autoplay, FreeMode } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/free-mode";
 import { useTranslation } from "react-i18next";
+import { AppContext } from "@/AppContext";
 
 const PurposeSection = () => {
   const { t } = useTranslation()
 
   const [isPlaying, setIsPlaying] = useState(true); // autoplay defaultda ON
   const swiperRef = useRef(null);
+  const { theme } = useContext(AppContext)
+  const { isDark } = theme
 
 
   const features = [
@@ -29,7 +32,7 @@ const PurposeSection = () => {
   ];
 
   return (
-    <section id="about" className="w-full bg-[#004D57] py-12 px-4 sm:px-6 md:px-8 lg:px-10">
+    <section id="about" className={`w-full  py-12 px-4 sm:px-6 md:px-8 lg:px-10 ${isDark ? "bg-[#232323]" : "bg-[#004D57]"}`}>
       <div className="min-w-6xl mx-auto">
         <motion.div
           variants={fadeIn("right", 0.2)}
@@ -89,11 +92,11 @@ const PurposeSection = () => {
             >
               {[...features, ...features].map((f, i) => (
                 <SwiperSlide key={i}>
-                  <div className="min-h-[250px] p-6 bg-white rounded-lg shadow mr-3 sm:mr-4">
-                    <h3 className="text-lg sm:text-xl font-semibold mb-2 whitespace-normal">
+                  <div className={`min-h-[250px] p-6 rounded-lg shadow mr-3 sm:mr-4 ${isDark ? "bg-[#004D57]" : "bg-white"}`}>
+                    <h3 className={`text-lg sm:text-xl font-semibold mb-2 whitespace-normal ${isDark ? "text-white" : "text-black"}`}>
                       {f.title}
                     </h3>
-                    <p className="text-[#3B3B3B] text-sm sm:text-base">
+                    <p className={` text-sm sm:text-base ${isDark ? "text-[#ffffff6e]" : "text-[#3B3B3B]"}`}>
                       {f.description}
                     </p>
                   </div>

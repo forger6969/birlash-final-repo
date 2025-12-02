@@ -15,12 +15,12 @@ import BusinessParticles from './components/BusinessParticles'
 import { MorphingDialogBasicTwo } from './components/MorphingDialogBasicTwo'
 import TimelineSection from './components/TimelineSection'
 import { AppContext } from './AppContext'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Theater } from 'lucide-react'
 
 function App() {
 
-  const [isDark, setTheme] = useState(true)
+  const [isDark, setTheme] = useState(false)
 
   return (
     <AppContext.Provider value={{
@@ -30,7 +30,7 @@ function App() {
       }
     }}>
 
-      <main className="relative min-h-screen overflow-x-hidden bg-[#E9ECEF]">
+      <main className={`relative min-h-screen overflow-x-hidden ${isDark ? 'bg-[#232323]' : 'bg-[#E9ECEF]'}`}>
         <div className="absolute -top-28 -left-28 w-[500px] h-[500px] bg-gradient-to-tr from-indigo-500/20 to-pink-500/20 rounded-full blur-[80px] -z-10"></div>
         <div className="overflow-hidden">
           <BusinessParticles />
@@ -41,7 +41,10 @@ function App() {
           <BirlashBrain />
           <SwiperForger />
           <TimelineSection />
-          <ScheduleSection />
+          <div className={` ${isDark ? "bg-[#004D57]" : "bg-white"}`}>
+            <ScheduleSection />
+
+          </div>
           <MonitorSection />
           <ServicesSection />
           <TestimonialsSection />

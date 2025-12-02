@@ -1,14 +1,17 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useContext } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { AppContext } from '@/AppContext';
 
 export default function TimelineSection({ bgImage = "/world-map.png" }) {
+    const { theme } = useContext(AppContext);
+    const { isDark } = theme;
+
     const years = [
         { year: "2026", cities: ["Samarqand", "Buxoro", "Xorazm", "Farg'ona"] },
         { year: "2027", cities: ["Almata", "Astana", "Moskva"] },
         { year: "2028", cities: ["Dubai", "Ankara"] },
     ];
 
-    // track which column is active
     const [active, setActive] = useState(null);
 
     const createParticles = (n, seed) =>
@@ -37,11 +40,21 @@ export default function TimelineSection({ bgImage = "/world-map.png" }) {
         exit: { opacity: 0, y: 6, transition: { duration: 0.18 } },
     };
 
+    // динамические цвета
+    const bgColor = isDark ? 'bg-[#232323]' : 'bg-white';
+    const textColor = isDark ? 'text-gray-200' : 'text-slate-900';
+    const subTextColor = isDark ? 'text-gray-400' : 'text-slate-500';
+    const mapOverlay = isDark ? 'opacity-20' : 'opacity-30';
+    const barBg = isDark ? 'bg-gray-800' : 'bg-slate-900';
+    const barText = isDark ? 'text-gray-200' : 'text-white';
+    const markerBg = isDark ? 'bg-teal-400/50' : 'bg-teal-200/70';
+    const markerDot = isDark ? 'bg-teal-300' : 'bg-teal-500';
+    const descText = isDark ? 'text-gray-300' : 'text-slate-700';
+
     return (
-        <section className="relative bg-white border border-slate-200 rounded-lg overflow-hidden">
-            {/* header */}
+        <section className={`relative border border-slate-200 overflow-hidden transition-colors duration-500 ${bgColor}`}> 
             <div className="px-6 md:px-12 py-6 md:py-8 flex items-center justify-between">
-                <h2 className="text-lg md:text-2xl font-extrabold tracking-tight text-slate-900">
+                <h2 className={`text-lg md:text-2xl font-extrabold tracking-tight ${textColor}`}>
                     BIZNING KENG KO’LAMLI REJALARIMIZ
                 </h2>
                 <div className="w-11 h-11 md:w-12 md:h-12 rounded-full bg-teal-600 text-white flex items-center justify-center font-bold shadow">
@@ -49,18 +62,16 @@ export default function TimelineSection({ bgImage = "/world-map.png" }) {
                 </div>
             </div>
 
-            {/* main area */}
-            <div className="relative bg-slate-50/60">
-                {/* map background */}
+            <div className="relative">
                 <div
-                    className="absolute inset-0 bg-center bg-no-repeat bg-contain opacity-30 pointer-events-none"
+                    className={`absolute inset-0 bg-center bg-no-repeat bg-contain pointer-events-none ${mapOverlay}`}
                     style={{ backgroundImage: `url(${bgImage})` }}
                 />
 
                 {/* years bar */}
                 <div className="relative mx-6 md:mx-12">
-                    <div className="bg-slate-900 text-white rounded-sm">
-                        <div className="grid grid-cols-3 gap-4 md:gap-8 px-4 md:px-8 py-5 md:py-6 text-center font-semibold text-sm md:text-lg">
+                    <div className={barBg + ' rounded-sm'}>
+                        <div className={`grid grid-cols-3 gap-4 md:gap-8 px-4 md:px-8 py-5 md:py-6 text-center font-semibold text-sm md:text-lg ${barText}`}>
                             {years.map((y, i) => (
                                 <button
                                     key={y.year}
@@ -74,7 +85,6 @@ export default function TimelineSection({ bgImage = "/world-map.png" }) {
                                     <motion.span whileHover={{ scale: 1.03 }} transition={{ duration: 0.15 }}>
                                         {y.year}
                                     </motion.span>
-
                                     <motion.div
                                         layoutId="year-indicator"
                                         initial={false}
@@ -88,35 +98,21 @@ export default function TimelineSection({ bgImage = "/world-map.png" }) {
                     </div>
                 </div>
 
-                {/* content grid (columns) */}
+                {/* content grid */}
                 <div className="mx-6 md:mx-12 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-12 py-8 md:py-12">
                     {years.map((col, colIndex) => (
-                        <div
-                            key={col.year}
-                            className="relative"
-                            onMouseEnter={() => setActive(colIndex)}
-                            onMouseLeave={() => setActive(null)}
-                        >
+                        <div key={col.year} className="relative" onMouseEnter={() => setActive(colIndex)} onMouseLeave={() => setActive(null)}>
                             {/* vertical rule */}
                             <div className="absolute left-5 md:left-7 top-0 bottom-0 flex items-start">
                                 <div className="w-px bg-slate-300 h-full" />
                             </div>
 
                             <div className="pl-14 md:pl-20">
-                                {/* animated list */}
                                 <AnimatePresence>
                                     {active === colIndex && (
-                                        <motion.ul
-                                            key={`list-${colIndex}`}
-                                            variants={listContainer}
-                                            initial="hidden"
-                                            animate="show"
-                                            exit="exit"
-                                            className="space-y-4"
-                                        >
+                                        <motion.ul key={`list-${colIndex}`} variants={listContainer} initial="hidden" animate="show" exit="exit" className="space-y-4">
                                             {col.cities.map((city, ci) => (
                                                 <motion.li key={city} variants={listItem} className="flex items-center gap-3">
-                                                    {/* marker */}
                                                     <div className="relative w-6 h-6 flex items-center justify-center">
                                                         {particlesMemo[colIndex][ci].map((p) => (
                                                             <motion.span
@@ -130,22 +126,22 @@ export default function TimelineSection({ bgImage = "/world-map.png" }) {
                                                                 }}
                                                                 transition={{ duration: 0.7, delay: p.delay + ci * 0.02 }}
                                                                 style={{ width: p.size, height: p.size }}
-                                                                className="absolute rounded-full bg-teal-200/70"
+                                                                className={`absolute rounded-full ${markerBg}`}
                                                             />
                                                         ))}
                                                         <motion.span
                                                             initial={{ scale: 0.8 }}
                                                             animate={{ scale: 1 }}
                                                             transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                                                            className="block w-3 h-3 rounded-full bg-teal-500 shadow-sm"
+                                                            className={`block w-3 h-3 rounded-full ${markerDot} shadow-sm`}
                                                         />
                                                     </div>
 
                                                     <div className="flex-1 min-w-0">
-                                                        <motion.div className="font-semibold text-slate-900 text-sm md:text-base truncate">
+                                                        <motion.div className={`font-semibold ${textColor} text-sm md:text-base truncate`}>
                                                             {city.toUpperCase()}
                                                         </motion.div>
-                                                        <motion.div className="text-xs text-slate-500">Приоритетный филиал</motion.div>
+                                                        <motion.div className={`text-xs ${subTextColor}`}>Приоритетный филиал</motion.div>
                                                     </div>
 
                                                     <div className="hidden md:flex">
@@ -159,11 +155,10 @@ export default function TimelineSection({ bgImage = "/world-map.png" }) {
                                     )}
                                 </AnimatePresence>
 
-                                {/* description */}
                                 <motion.p
                                     animate={{ opacity: active === colIndex ? 0.24 : 1 }}
                                     transition={{ duration: 0.28 }}
-                                    className="mt-8 text-slate-700 font-semibold text-sm md:text-base leading-snug"
+                                    className={`mt-8 font-semibold text-sm md:text-base leading-snug ${descText}`}
                                 >
                                     QAYERDA BO’LSANGIZ XAM BARCHA FILLIALARIMGA KIRISH IMKONIYATI BO’LADI. BARCHA FILLIALARIMIZ O’ZBEK TILIDA O’ZBEKLAR UCHUN.
                                 </motion.p>
