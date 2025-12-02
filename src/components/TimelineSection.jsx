@@ -1,19 +1,6 @@
 import React, { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-// TimelineSection — polished styles + responsive layout
-// Improvements in this version:
-// - Consistent spacing and typography
-// - Clean grid alignment so years, lines and city lists look balanced
-// - Accessible keyboard + mobile accordion behavior
-// - Lighter, brand-consistent color palette and improved contrast
-// - Reduced visual clutter; focused animations
-
-// Usage:
-// 1) npm i framer-motion
-// 2) Tailwind configured
-// 3) <TimelineSection bgImage="/path/to/map.png" />
-
 export default function TimelineSection({ bgImage = "/world-map.png" }) {
   const years = [
     { year: "2026", cities: ["Samarqand", "Buxoro", "Xorazm", "Farg'ona"] },
@@ -21,10 +8,9 @@ export default function TimelineSection({ bgImage = "/world-map.png" }) {
     { year: "2028", cities: ["Dubai", "Ankara"] },
   ];
 
-  // track active column (hover on desktop / click on mobile)
+  // track which column is active
   const [active, setActive] = useState(null);
 
-  // particles helper for small decorative burst (kept lightweight)
   const createParticles = (n, seed) =>
     new Array(n).fill(0).map((_, i) => ({
       id: `${seed}-${i}`,
@@ -34,9 +20,11 @@ export default function TimelineSection({ bgImage = "/world-map.png" }) {
       delay: Math.random() * 0.18,
     }));
 
-  const particlesMemo = useMemo(() => years.map((y, yi) => y.cities.map((c, ci) => createParticles(6, `${yi}-${ci}`))), []);
+  const particlesMemo = useMemo(
+    () => years.map((y, yi) => y.cities.map((c, ci) => createParticles(6, `${yi}-${ci}`))),
+    []
+  );
 
-  // simple variants
   const listContainer = {
     hidden: { opacity: 0 },
     show: { opacity: 1, transition: { staggerChildren: 0.05 } },
@@ -53,13 +41,17 @@ export default function TimelineSection({ bgImage = "/world-map.png" }) {
     <section className="relative bg-white border border-slate-200 rounded-lg overflow-hidden">
       {/* header */}
       <div className="px-6 md:px-12 py-6 md:py-8 flex items-center justify-between">
-        <h2 className="text-lg md:text-2xl font-extrabold tracking-tight text-slate-900">BIZNING KENG KO’LAMLI REJALARIMIZ</h2>
-        <div className="w-11 h-11 md:w-12 md:h-12 rounded-full bg-teal-600 text-white flex items-center justify-center font-bold shadow">B</div>
+        <h2 className="text-lg md:text-2xl font-extrabold tracking-tight text-slate-900">
+          BIZNING KENG KO’LAMLI REJALARIMIZ
+        </h2>
+        <div className="w-11 h-11 md:w-12 md:h-12 rounded-full bg-teal-600 text-white flex items-center justify-center font-bold shadow">
+          B
+        </div>
       </div>
 
       {/* main area */}
       <div className="relative bg-slate-50/60">
-        {/* map background (subtle, centered) */}
+        {/* map background */}
         <div
           className="absolute inset-0 bg-center bg-no-repeat bg-contain opacity-30 pointer-events-none"
           style={{ backgroundImage: `url(${bgImage})` }}
@@ -73,7 +65,6 @@ export default function TimelineSection({ bgImage = "/world-map.png" }) {
                 <button
                   key={y.year}
                   onMouseEnter={() => setActive(i)}
-                  onMouseLeave={() => setActive(null)}
                   onFocus={() => setActive(i)}
                   onBlur={() => setActive(null)}
                   onClick={() => setActive(active === i ? null : i)}
@@ -84,7 +75,6 @@ export default function TimelineSection({ bgImage = "/world-map.png" }) {
                     {y.year}
                   </motion.span>
 
-                  {/* active indicator */}
                   <motion.div
                     layoutId="year-indicator"
                     initial={false}
@@ -101,14 +91,19 @@ export default function TimelineSection({ bgImage = "/world-map.png" }) {
         {/* content grid (columns) */}
         <div className="mx-6 md:mx-12 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-12 py-8 md:py-12">
           {years.map((col, colIndex) => (
-            <div key={col.year} className="relative">
-              {/* vertical rule aligned to text */}
+            <div
+              key={col.year}
+              className="relative"
+              onMouseEnter={() => setActive(colIndex)}
+              onMouseLeave={() => setActive(null)}
+            >
+              {/* vertical rule */}
               <div className="absolute left-5 md:left-7 top-0 bottom-0 flex items-start">
                 <div className="w-px bg-slate-300 h-full" />
               </div>
 
               <div className="pl-14 md:pl-20">
-                {/* animated list appears only when active */}
+                {/* animated list */}
                 <AnimatePresence>
                   {active === colIndex && (
                     <motion.ul
@@ -121,29 +116,42 @@ export default function TimelineSection({ bgImage = "/world-map.png" }) {
                     >
                       {col.cities.map((city, ci) => (
                         <motion.li key={city} variants={listItem} className="flex items-center gap-3">
-                          {/* marker + lightweight particle burst */}
+                          {/* marker */}
                           <div className="relative w-6 h-6 flex items-center justify-center">
-                            {particlesMemo[colIndex][ci].map(p => (
+                            {particlesMemo[colIndex][ci].map((p) => (
                               <motion.span
                                 key={p.id}
                                 initial={{ opacity: 0, x: 0, y: 0, scale: 0.2 }}
-                                animate={{ opacity: [0, 0.9, 0], x: Math.cos(p.angle) * p.dist, y: Math.sin(p.angle) * p.dist, scale: [0.2, 1, 0.2] }}
+                                animate={{
+                                  opacity: [0, 0.9, 0],
+                                  x: Math.cos(p.angle) * p.dist,
+                                  y: Math.sin(p.angle) * p.dist,
+                                  scale: [0.2, 1, 0.2],
+                                }}
                                 transition={{ duration: 0.7, delay: p.delay + ci * 0.02 }}
                                 style={{ width: p.size, height: p.size }}
                                 className="absolute rounded-full bg-teal-200/70"
                               />
                             ))}
-
-                            <motion.span initial={{ scale: 0.8 }} animate={{ scale: 1 }} transition={{ type: "spring", stiffness: 300, damping: 20 }} className="block w-3 h-3 rounded-full bg-teal-500 shadow-sm" />
+                            <motion.span
+                              initial={{ scale: 0.8 }}
+                              animate={{ scale: 1 }}
+                              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                              className="block w-3 h-3 rounded-full bg-teal-500 shadow-sm"
+                            />
                           </div>
 
                           <div className="flex-1 min-w-0">
-                            <motion.div className="font-semibold text-slate-900 text-sm md:text-base truncate">{city.toUpperCase()}</motion.div>
+                            <motion.div className="font-semibold text-slate-900 text-sm md:text-base truncate">
+                              {city.toUpperCase()}
+                            </motion.div>
                             <motion.div className="text-xs text-slate-500">Приоритетный филиал</motion.div>
                           </div>
 
                           <div className="hidden md:flex">
-                            <button className="text-xs px-3 py-1 rounded-full border border-teal-500 text-teal-600 hover:bg-teal-50 font-semibold">Подробнее</button>
+                            <button className="text-xs px-3 py-1 rounded-full border border-teal-500 text-teal-600 hover:bg-teal-50 font-semibold">
+                              Подробнее
+                            </button>
                           </div>
                         </motion.li>
                       ))}
@@ -151,9 +159,13 @@ export default function TimelineSection({ bgImage = "/world-map.png" }) {
                   )}
                 </AnimatePresence>
 
-                {/* description text */}
-                <motion.p animate={{ opacity: active === colIndex ? 0.24 : 1 }} transition={{ duration: 0.28 }} className="mt-8 text-slate-700 font-semibold text-sm md:text-base leading-snug">
-                  QAYERDA BO’LSANGIZ XAM BARCHA FILLIALARIMIZGA KIRISH IMKONIYATI BO’LADI. BARCHA FILLIALARIMIZ O’ZBEK TILIDA O’ZBEKLAR UCHUN.
+                {/* description */}
+                <motion.p
+                  animate={{ opacity: active === colIndex ? 0.24 : 1 }}
+                  transition={{ duration: 0.28 }}
+                  className="mt-8 text-slate-700 font-semibold text-sm md:text-base leading-snug"
+                >
+                  QAYERDA BO’LSANGIZ XAM BARCHA FILLIALARIMGA KIRISH IMKONIYATI BO’LADI. BARCHA FILLIALARIMIZ O’ZBEK TILIDA O’ZBEKLAR UCHUN.
                 </motion.p>
               </div>
             </div>
@@ -161,7 +173,9 @@ export default function TimelineSection({ bgImage = "/world-map.png" }) {
         </div>
 
         {/* page badge */}
-        <div className="absolute right-6 bottom-6 w-12 h-12 rounded-full bg-teal-600 text-white flex items-center justify-center font-bold shadow-lg">5</div>
+        <div className="absolute right-6 bottom-6 w-12 h-12 rounded-full bg-teal-600 text-white flex items-center justify-center font-bold shadow-lg">
+          5
+        </div>
       </div>
     </section>
   );
