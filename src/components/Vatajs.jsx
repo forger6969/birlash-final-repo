@@ -108,6 +108,8 @@ const Hero = () => {
                 transition={{ duration: 1.2, ease: "easeOut" }}   
 
 
+
+                
                 
 
             />
